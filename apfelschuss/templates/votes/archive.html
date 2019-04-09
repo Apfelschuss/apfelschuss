@@ -10,7 +10,7 @@
 
     <div class="col-sm-8">
 
-      {% for voting in voting_list %}
+      {% for voting in queryset %}
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">{{ voting.title }}</h5>
@@ -25,19 +25,16 @@
         </div>
       {% endfor %}
 
-      <nav aria-label="Voting pagination">
-        <ul class="pagination">
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">Previous</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item active">
-            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
+      <!-- Pagination -->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination pagination-template d-flex justify-content-center">
+          {% if queryset.has_previous %}
+          <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="page-link">Previous</a></li>
+          {% endif %}
+          <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.number }}" class="page-link active">{{ queryset.number }}</a></li>
+          {% if queryset.has_next %}
+          <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="page-link">Next</a></li>
+          {% endif %}
         </ul>
       </nav>
 

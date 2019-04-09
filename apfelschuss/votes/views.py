@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 
 from apfelschuss.votes.models import Voting
@@ -11,7 +12,17 @@ def voting(request):
 
 def archive(request):
     voting_list = Voting.objects.all()
+    paginator = Paginator(voting_list, 1)
+    page_request_var = 'page'
+    page = request.GET.get('page')
+    try:
+        paginated_queryset = paginator.page(page)
+    except PageNotAnInteger:
+        paginated_queryset = paginator.page(1)
+    except EmptyPage:
+         paginated_queryset = paginator.page(paginator.num_pages)
     context = {
-        'voting_list': voting_list
+        'queryset': paginated_queryset,
+        'page_request_var': page_request_var
     }
     return render(request, 'votes/archive.html', context)
