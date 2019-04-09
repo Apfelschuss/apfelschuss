@@ -47,6 +47,9 @@
               <a class="nav-link" href="{% url 'votes:voting' %}">Votes</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{% url 'votes:archive' %}">Archive</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
             {% if request.user.is_authenticated %}

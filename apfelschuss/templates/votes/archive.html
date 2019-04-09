@@ -2,6 +2,47 @@
 
 {% block content %}
 
-  archive page
+  <div class="row">
+
+    <div class="col-sm-4">
+      One of three columns
+    </div>
+
+    <div class="col-sm-8">
+
+      {% for voting in voting_list %}
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ voting.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ voting.timestamp|timesince }} ago</h6>
+            {% for cat in voting.categories.all %}
+              <a href="#" class="badge badge-light">{{ cat.title }}</a>
+            {% endfor %}
+            <p class="card-text">{{ voting.overview }}</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      {% endfor %}
+
+      <nav aria-label="Voting pagination">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+
+  </div>
 
 {% endblock %}

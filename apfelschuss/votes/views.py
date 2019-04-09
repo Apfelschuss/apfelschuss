@@ -10,4 +10,8 @@ def voting(request):
     return render(request, 'votes/voting.html', context)
 
 def archive(request):
-    return render(request, 'votes/archive.html', {})
+    voting_list = Voting.objects.all()
+    context = {
+        'voting_list': voting_list
+    }
+    return render(request, 'votes/archive.html', context)
