@@ -12,7 +12,7 @@ def voting(request):
 
 def archive(request):
     voting_list = Voting.objects.all()
-    paginator = Paginator(voting_list, 1)
+    paginator = Paginator(voting_list, 3)
     page_request_var = 'page'
     page = request.GET.get('page')
     try:

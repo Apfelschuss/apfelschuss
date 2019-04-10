@@ -25,7 +25,6 @@
         </div>
       {% endfor %}
 
-      <!-- Pagination -->
       <nav aria-label="Page navigation example">
         <ul class="pagination pagination-template d-flex justify-content-center">
           {% if queryset.has_previous %}
@@ -38,7 +37,7 @@
             {% if queryset.number == i %}
               <li class="page-item active"><a href="?{{ page_request_var }}={{ i }}" class="page-link">{{ i }} <span class="sr-only">(current)</span></a></li>
             {% else %}
-              <li class="page-item"><a class="page-link" href="?{{ page_request_var }}={{ queryset.number }}">{{ i }}</a></li>
+              <li class="page-item"><a class="page-link" href="?{{ page_request_var }}={{ i }}">{{ i }}</a></li>
             {% endif %}
           {% endfor %}
 
