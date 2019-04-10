@@ -26,3 +26,6 @@ def archive(request):
         'page_request_var': page_request_var
     }
     return render(request, 'votes/archive.html', context)
+
+def voting(request, id):
+    return render(request, 'votes/single.html', {})
