@@ -3,12 +3,12 @@ from django.shortcuts import render
 
 from apfelschuss.votes.models import Voting
 
-def voting(request):
+def featured(request):
     featured = Voting.objects.filter(featured=True)
     context = {
         'object_list': featured
     }
-    return render(request, 'votes/voting.html', context)
+    return render(request, 'votes/featured.html', context)
 
 def archive(request):
     voting_list = Voting.objects.all()
