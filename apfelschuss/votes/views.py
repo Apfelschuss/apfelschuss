@@ -1,8 +1,21 @@
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 
 from apfelschuss.votes.models import Voting
+
+def search(request):
+    queryset = Voting.objects.all()
+    query = request.GET.get('q')
+    if query:
+        queryset = queryset.filter(
+            Q(title__icontains=query) |
+            Q(overview__icontains=query)
+        ).distinct()
+    context = {
+        'queryset': queryset
+    }
+    return render(request, 'votes/search_results.html', context)
 
 def get_category_count():
     queryset = Voting \
