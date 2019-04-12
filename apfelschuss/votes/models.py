@@ -1,8 +1,11 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
+<<<<<<< Updated upstream
 
 from tinymce import HTMLField
+=======
+>>>>>>> Stashed changes
 
 User = get_user_model()
 
@@ -36,7 +39,12 @@ class Voting(models.Model):
     def __str__(self):
         return self.title
 
+<<<<<<< Updated upstream
     def get_absolute_url(self):
         return reverse('votes:single', kwargs={
             'id': self.id
         })
+=======
+    #def get_absolute_url(self):
+    #    return reverse()
+>>>>>>> Stashed changes
