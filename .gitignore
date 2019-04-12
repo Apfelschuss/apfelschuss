@@ -282,3 +282,7 @@ apfelschuss/media/
 # Webpack and styles
 apfelschuss/static/*
 !apfelschuss/static/.gitkeep
+
+# Directory for django filebrowser
+!apfelschuss/media/uploads/.gitkeep
+
