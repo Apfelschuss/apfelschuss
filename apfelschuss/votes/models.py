@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
+from tinymce import HTMLField
+
 User = get_user_model()
 
 
@@ -24,6 +26,7 @@ class Voting(models.Model):
     title = models.CharField(max_length=160)
     overview = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
+    content = HTMLField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     thumbnail = models.ImageField()
     video_url = models.URLField(max_length=200)
