@@ -4,6 +4,9 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
+
+from filebrowser.sites import site
+
 from votes import views
 
 urlpatterns = [
@@ -19,6 +22,7 @@ urlpatterns = [
     # Your stuff: custom urls includes go here
     path("votes/", include("apfelschuss.votes.urls", namespace="votes")),
     path("tinymce/", include("tinymce.urls")),
+    path(settings.ADMIN_URL+"filebrowser/", site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

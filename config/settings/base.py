@@ -68,6 +68,7 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
     "rest_framework",
     "tinymce",
+    "filebrowser",
 ]
 LOCAL_APPS = [
     "apfelschuss.users.apps.UsersAppConfig",

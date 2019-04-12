@@ -2,6 +2,26 @@
 
 {% block content %}
 
-Single voting item
+  <h1>{{ voting.title }}</h1>
+
+  {% for cat in voting.categories.all %}
+    <a href="#" class="badge badge-light">{{ cat.title }}</a>
+  {% endfor %}
+
+  <img src="{{ voting.thumbnail.url }}" class="img-fluid" alt="Thumbnail">
+
+  <div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src="{{ voting.video_url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <p>{{ voting.overview }}</p>
+
+    <p>{{ voting.content }}</p>
+
+  <img src="{{ voting.author.profile_picture.url }}" class="img-fluid" alt="Author">
+
+  <p>{{ voting.author }}</p>
+
+  <p>{{ voting.timestamp|timesince }} ago</p>
 
 {% endblock %}
