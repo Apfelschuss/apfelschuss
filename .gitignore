@@ -266,8 +266,9 @@ tags
 
 
 ### Project template
-
 apfelschuss/media/
+apfelschuss/media/uploads/*
+!apfelschuss/media/uploads/.gitkeep
 
 .pytest_cache/
 

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="row">
+
+    <div class="col-sm-4">
+
+      <form action="{% url 'votes:search' %}" class="form-inline">
+        <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+      <ul class="list-group">
+        {% for cat in category_count %}
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ cat.categories__title }}
+            <span class="badge badge-primary badge-pill">{{ cat.categories__title__count }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+
+    </div>
+
+    <div class="col-sm-8">
+
+      {% for voting in queryset %}
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ voting.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ voting.timestamp|timesince }} ago</h6>
+            {% for cat in voting.categories.all %}
+              <a href="#" class="badge badge-light">{{ cat.title }}</a>
+            {% endfor %}
+            <p class="card-text">{{ voting.overview }}</p>
+            <a href="{{ voting.get_absolute_url }}" class="card-link">Card link</a>
+          </div>
+        </div>
+      {% endfor %}
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination pagination-template d-flex justify-content-center">
+          {% if queryset.has_previous %}
+            <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="page-link">Previous</a></li>
+          {% else %}
+            <li class="page-item disabled"><span class="page-link">Previous</span></li>
+          {% endif %}
+
+          {% for i in queryset.paginator.page_range %}
+            {% if queryset.number == i %}
+              <li class="page-item active"><a href="?{{ page_request_var }}={{ i }}" class="page-link">{{ i }} <span class="sr-only">(current)</span></a></li>
+            {% else %}
+              <li class="page-item"><a class="page-link" href="?{{ page_request_var }}={{ i }}">{{ i }}</a></li>
+            {% endif %}
+          {% endfor %}
+
+          {% if queryset.has_next %}
+            <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="page-link">Next</a></li>
+          {% else %}
+            <li class="page-item disabled"><span class="page-link">Next</span></li>
+          {% endif %}
+        </ul>
+      </nav>
+
+    </div>
+
+  </div>
+
+{% endblock %}

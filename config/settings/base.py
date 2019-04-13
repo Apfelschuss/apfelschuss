@@ -67,10 +67,13 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "rest_framework",
+    "tinymce",
+    "filebrowser",
 ]
 LOCAL_APPS = [
     "apfelschuss.users.apps.UsersAppConfig",
     # Your stuff: custom apps go here
+    "apfelschuss.votes.apps.VotesConfig"
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -232,5 +235,34 @@ ACCOUNT_ADAPTER = "apfelschuss.users.adapters.AccountAdapter"
 SOCIALACCOUNT_ADAPTER = "apfelschuss.users.adapters.SocialAccountAdapter"
 
 
-# Your stuff
+# django-tinymce4-lite
 # ------------------------------------------------------------------------------
+# https://fosstack.com/how-to-set-up-tinymce-in-django-app/
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 400,
+    'width': 1000,
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'theme': 'modern',
+    'plugins': '''
+            textcolor save link image media preview codesample contextmenu
+            table code lists fullscreen  insertdatetime  nonbreaking
+            contextmenu directionality searchreplace wordcount visualblocks
+            visualchars code fullscreen autolink lists  charmap print  hr
+            anchor pagebreak
+            ''',
+    'toolbar1': '''
+            fullscreen preview bold italic underline | fontselect,
+            fontsizeselect  | forecolor backcolor | alignleft alignright |
+            aligncenter alignjustify | indent outdent | bullist numlist table |
+            | link image media | codesample |
+            ''',
+    'toolbar2': '''
+            visualblocks visualchars |
+            charmap hr pagebreak nonbreaking anchor |  code |
+            ''',
+    'contextmenu': 'formats | link image',
+    'menubar': True,
+    'statusbar': True,
+    }
