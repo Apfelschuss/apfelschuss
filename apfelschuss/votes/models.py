@@ -36,12 +36,7 @@ class Voting(models.Model):
     def __str__(self):
         return self.title
 
-<<<<<<< Updated upstream
     def get_absolute_url(self):
         return reverse('votes:single', kwargs={
             'id': self.id
         })
-=======
-    #def get_absolute_url(self):
-    #    return reverse()
->>>>>>> Stashed changes

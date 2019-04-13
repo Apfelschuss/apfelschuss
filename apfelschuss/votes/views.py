@@ -50,12 +50,9 @@ def archive(request):
     }
     return render(request, 'votes/archive.html', context)
 
-<<<<<<< Updated upstream
 def voting(request, id):
     voting = get_object_or_404(Voting, id=id)
     context = {
         'voting': voting
     }
     return render(request, 'votes/single.html', context)
-=======
->>>>>>> Stashed changes
