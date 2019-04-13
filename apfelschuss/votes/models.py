@@ -1,11 +1,8 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-<<<<<<< Updated upstream
 
 from tinymce import HTMLField
-=======
->>>>>>> Stashed changes
 
 User = get_user_model()
 
