@@ -239,8 +239,8 @@ SOCIALACCOUNT_ADAPTER = "apfelschuss.users.adapters.SocialAccountAdapter"
 # ------------------------------------------------------------------------------
 # https://fosstack.com/how-to-set-up-tinymce-in-django-app/
 TINYMCE_DEFAULT_CONFIG = {
-    'height': 360,
-    'width': 1120,
+    'height': 400,
+    'width': 1000,
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 20,
     'selector': 'textarea',

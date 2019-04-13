@@ -16,12 +16,27 @@
 
   <p>{{ voting.overview }}</p>
 
-    <p>{{ voting.content }}</p>
+    <p>{{ voting.content | safe }}</p>
 
   <img src="{{ voting.author.profile_picture.url }}" class="img-fluid" alt="Author">
 
   <p>{{ voting.author }}</p>
 
   <p>{{ voting.timestamp|timesince }} ago</p>
+
+  {% if voting.previous_voting %}
+  <a href="{{ voting.previous_voting.get_absolute_url }}">
+      <div class="text">Previous Post
+        <h6>{{ voting.previous_voting.title }}</h6>
+      </div>
+  </a>
+  {% endif %}
+  {% if voting.next_voting %}
+  <a href="{{ voting.next_voting.get_absolute_url }}">
+      <div class="text">Next Post
+        <h6>{{ voting.next_voting.title }}</h6>
+      </div>
+  </a>
+  {% endif %}
 
 {% endblock %}
