@@ -32,8 +32,16 @@ class Voting(models.Model):
     video_url = models.URLField(max_length=200)
     categories = models.ManyToManyField(Category)
     featured = models.BooleanField(default=True)
-    previous_voting = models.ForeignKey('self', related_name='previous', on_delete=models.SET_NULL, blank=True, null=True)
-    next_voting = models.ForeignKey('self', related_name='next', on_delete=models.SET_NULL, blank=True, null=True)
+    previous_voting = models.ForeignKey(
+        'self',
+        related_name='previous',
+        on_delete=models.SET_NULL,
+        blank=True, null=True)
+    next_voting = models.ForeignKey(
+        'self',
+        related_name='next',
+        on_delete=models.SET_NULL,
+        blank=True, null=True)
 
     def __str__(self):
         return self.title
