@@ -266,8 +266,9 @@ tags
 
 
 ### Project template
-
 apfelschuss/media/
+apfelschuss/media/uploads/*
+!apfelschuss/media/uploads/.gitkeep
 
 .pytest_cache/
 
@@ -282,7 +283,3 @@ apfelschuss/media/
 # Webpack and styles
 apfelschuss/static/*
 !apfelschuss/static/.gitkeep
-
-# Directory for django filebrowser
-!apfelschuss/media/uploads/.gitkeep
-
