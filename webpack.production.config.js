@@ -1,10 +1,11 @@
 const path = require('path')
+const glob = require('glob')
 const autoprefixer = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const PurgecssPlugin = require('purgecss-webpack-plugin')
 
 const configs = [{
   mode: 'production',
@@ -17,7 +18,7 @@ const configs = [{
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader'
+        use: 'babel-loader',
       },
       {
         test: /\.(sass|scss)$/,
@@ -69,8 +70,16 @@ const configs = [{
             }
           },
         ],
+      },
+      {
+        resolve: {
+          extensions: ['.js'],
+          alias: {
+            'jquery': 'jquery/dist/jquery.slim.js',
+          }
+        },
       }
-    ]
+    ],
   },
 
   plugins: [
@@ -83,16 +92,14 @@ const configs = [{
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default']
     }),
-    new CopyWebpackPlugin([
-      {
-        from: './apfelschuss/src/public',
-        to: 'public',
-      },
-    ]),
     new UglifyJsPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
+    new PurgecssPlugin({
+        paths: glob.sync('./apfelschuss/templates/**/*.html', { nodir: true }),
+        whitelistPatterns: [/selectize-.*/]
+    })
   ]
 }
 ]
