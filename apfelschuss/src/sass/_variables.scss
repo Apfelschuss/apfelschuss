@@ -1,8 +1,5 @@
-// =================================================================
-// Custom variables
-// =================================================================
+// Color system
 
-// 1. Colors
 $white:    #fff;
 $gray-100: #f8f9fa;
 $gray-200: #ddd;
@@ -35,51 +32,13 @@ $danger:        $orange;
 $light:         $white;
 $dark:          $gray-800;
 
-// Body background:
-$body-bg: #FCFCFC;
+// Body
 
-// 4. Typography
+$body-bg:                   #FCFCFC;
 
-// Set HTML font size
-$html-font-size: 16px;
-
-// Set font size
-$xs-font-size: 0.75rem;
-$s-font-size: 0.875rem;
-$m-font-size: 0.975rem;
-$l-font-size: 1rem;
-$xl-font-size: 1.125rem;
-$xxl-font-size: 1.875rem;
-
-// 2. Fonts
-// ==========================================================================
+// Fonts
 
 $font-family-sans-serif:      "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-
-$font-size-base:              $m-font-size;
-
-// 3. Global
-// ==========================================================================
-
-// Media Query Ranges
-$xsmall-screen-down: 575px;
-$small-screen-down: 767px;
-$medium-screen-down: 991px;
-$large-screen-down: 1199px;
-
-$small-screen: 576px;
-$medium-screen: 768px;
-$large-screen: 992px;
-$xlarge-screen: 1200px;
-
-$small-and-up: "screen and (min-width: #{$small-screen})";
-$medium-and-up: "screen and (min-width: #{$medium-screen})";
-$large-and-up: "screen and (min-width: #{$large-screen})";
-$xlarge-and-up: "screen and (min-width: #{$xlarge-screen})";
-$xsmall-and-down: "screen and (max-width: #{$xsmall-screen-down})";
-$small-and-down: "screen and (max-width: #{$small-screen-down})";
-$medium-and-down: "screen and (max-width: #{$medium-screen-down})";
-$large-and-down: "screen and (max-width: #{$large-screen-down})";
 
 // Dropdowns
 
@@ -97,7 +56,7 @@ $nav-tabs-border-color:             darken(#fff, 6.5%);
 
 $navbar-dark-color:                 rgba($white,.75);
 $navbar-dark-hover-color:           $white;
-
+$navbar-brand-padding-y:            0;
 // Pagination
 
 $pagination-border-color:           $nav-tabs-border-color;

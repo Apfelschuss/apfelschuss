@@ -1,11 +1,3 @@
-@import 'node_modules/bootstrap/scss/bootstrap';
-@import 'mixins';
 @import 'variables';
+@import 'node_modules/bootstrap/scss/bootstrap';
 @import 'bootswatch';
-
-html, body{
-	margin: 0;
-	padding: 0;
-	background: $body-bg;
-  font-size: $l-font-size;
-}
