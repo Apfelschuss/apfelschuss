@@ -2,6 +2,7 @@ const path = require('path')
 const glob = require('glob')
 const autoprefixer = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
@@ -44,30 +45,35 @@ const configs = [{
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          'file-loader',
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              name: '[name].[ext]',
+              fallback: 'file-loader',
+              outputPath: 'img',
+            },
+          },
           {
             loader: 'image-webpack-loader',
             options: {
               mozjpeg: {
-                progressive: true,
-                quality: 65
+                mozjpeg: {
+                  progressive: true,
+                  quality: 65,
+                },
+                pngquant: {
+                  quality: '65-90',
+                  speed: 4,
+                },
+                gifsicle: {
+                  interlaced: false,
+                },
+                webp: {
+                  quality: 75,
+                },
               },
-              // optipng.enabled: false will disable optipng
-              optipng: {
-                enabled: false,
-              },
-              pngquant: {
-                quality: '65-90',
-                speed: 4
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              // the webp option will enable WEBP
-              webp: {
-                quality: 75
-              }
-            }
+            },
           },
         ],
       },
@@ -92,6 +98,12 @@ const configs = [{
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default']
     }),
+    new CopyWebpackPlugin([
+      {
+        from: './apfelschuss/src/public',
+        to: 'public',
+      },
+    ]),
     new UglifyJsPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
