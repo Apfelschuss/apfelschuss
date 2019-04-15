@@ -1,5 +1,5 @@
 {% load static i18n %}<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -44,7 +44,7 @@
 
   </head>
 
-  <body>
+  <body class="d-flex flex-column h-100">
 
     <a class="skippy sr-only sr-only-focusable" href="#content">
       <span class="skippy-text">Skip to main content</span>
@@ -52,7 +52,7 @@
 
     {% include 'header.html' %}
 
-    <main id="content" role="main">
+    <main id="content" class="flex-shrink-0" role="main">
       <div class="container">
 
         {% if messages %}
