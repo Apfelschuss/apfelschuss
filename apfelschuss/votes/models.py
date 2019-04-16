@@ -47,6 +47,6 @@ class Voting(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('votes:single', kwargs={
+        return reverse('votes:votes_single', kwargs={
             'id': self.id
         })
