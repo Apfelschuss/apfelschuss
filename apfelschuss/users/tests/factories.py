@@ -4,6 +4,9 @@ from django.contrib.auth import get_user_model
 from factory import DjangoModelFactory, Faker, post_generation
 
 
+User = get_user_model()
+
+
 class UserFactory(DjangoModelFactory):
 
     username = Faker("user_name")
