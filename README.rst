@@ -1,8 +1,6 @@
 Apfelschuss
 ===========
 
-Swiss pre-voting open-source webapplication
-
 .. image:: https://travis-ci.org/Apfelschuss/apfelschuss.svg?branch=master
     :target: https://travis-ci.org/Apfelschuss/apfelschuss
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
@@ -12,8 +10,11 @@ Swiss pre-voting open-source webapplication
      :target: https://github.com/ambv/black
      :alt: Black code style
 
-:License: GPLv3
+All Swiss citizens who have reached the age of 18 are entitled to vote and participate in elections at federal level. Approximately four times a year, voting occurs over various issues.
+Apfelschuss is a web application that wants support Swiss in their decision-making. Registered users indicate prior to the votes whether they will accept or decline the individual initiatives and referendums.
+More about voting in Switzerland can be `read on Wikipedia`_.
 
+.. _read on Wikipedia: https://en.wikipedia.org/wiki/Voting_in_Switzerland
 
 Settings
 --------
@@ -102,3 +103,17 @@ Docker
 See detailed `cookiecutter-django Docker documentation`_.
 
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
+
+Credits
+-------
+
+Many thanks to the contributors_.
+
+.. _contributors: https://github.com/Apfelschuss/apfelschuss/graphs/contributors
+
+License
+-------
+
+Apfelschuss is published under the `GNU GPLv3`_ license.
+
+.. _`GNU GPLv3`: https://www.gnu.org/licenses/gpl-3.0.html

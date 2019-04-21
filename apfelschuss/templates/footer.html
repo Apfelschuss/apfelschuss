@@ -1,8 +1,15 @@
-<footer class="mt-auto py-3">
+<footer class="mt-auto">
   <div class="container">
-    <span class="text-muted">
-    <a class="nav-link" href="{% url 'legal_notice' %}">Legal notice</a>
-    <a class="nav-link" href="{% url 'terms_of_use' %}">Terms of use</a>
-    </span>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'legal_notice' %}active{% endif %}" href="{% url 'legal_notice' %}">Legal notice</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'terms_of_use' %}active{% endif %}" href="{% url 'terms_of_use' %}">Terms of use</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/apfelschuss">GitHub</a>
+      </li>
+    </ul>
   </div>
 </footer>
