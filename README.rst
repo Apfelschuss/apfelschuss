@@ -3,14 +3,12 @@ Apfelschuss
 
 .. image:: https://travis-ci.org/Apfelschuss/apfelschuss.svg?branch=master
     :target: https://travis-ci.org/Apfelschuss/apfelschuss
-.. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
-     :target: https://github.com/pydanny/cookiecutter-django/
-     :alt: Built with Cookiecutter Django
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
      :target: https://github.com/ambv/black
      :alt: Black code style
 
 All Swiss citizens who have reached the age of 18 are entitled to vote and participate in elections at federal level. Approximately four times a year, voting occurs over various issues.
+
 Apfelschuss is a web application that wants support Swiss in their decision-making. Registered users indicate prior to the votes whether they will accept or decline the individual initiatives and referendums.
 More about voting in Switzerland can be `read on Wikipedia`_.
 
@@ -107,13 +105,23 @@ See detailed `cookiecutter-django Docker documentation`_.
 Credits
 -------
 
-Many thanks to the contributors_.
+Many thanks to:
+
+- the contributors_. Actually at the moment it is just one, but everyone is welcome.
+- `Cookiecutter Django`_ is a framework for jumpstarting production-ready Django projects.
+- `sentry.io`_ open source error tracking that helps developers monitor and fix crashes in real time.
+- `pyup.io`_ Python dependency security that keeps your dependencies up-to-date and compliant.
 
 .. _contributors: https://github.com/Apfelschuss/apfelschuss/graphs/contributors
+.. _`Cookiecutter Django`: https://github.com/pydanny/cookiecutter-django
+.. _`sentry.io`: https://sentry.io
+.. _`pyup.io`: https://pyup.io/
 
 License
 -------
 
 Apfelschuss is published under the `GNU GPLv3`_ license.
+
+**TL;DR**: You may copy, distribute and modify the software as long as you track changes/dates in source files. Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL along with build & install instructions.
 
 .. _`GNU GPLv3`: https://www.gnu.org/licenses/gpl-3.0.html
