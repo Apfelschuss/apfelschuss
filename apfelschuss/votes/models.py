@@ -22,9 +22,6 @@ class Author(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True
         )
-    profile_picture = models.ImageField(
-        blank=True
-        )
 
     def __str__(self):
         return self.user.username
@@ -38,7 +35,8 @@ class Category(models.Model):
     slug = models.SlugField(
         max_length=80,
         unique=True,
-        verbose_name="Voting category URL slug"
+        verbose_name="Voting category URL slug",
+        blank=True
         )
     voting_date = models.DateTimeField(
         verbose_name="Voting final date"
@@ -69,7 +67,8 @@ class Voting(models.Model):
     slug = models.SlugField(
         max_length=80,
         unique=True,
-        verbose_name="Voting URL slug"
+        verbose_name="Voting URL slug",
+        blank=True
         )
     created_at = models.DateTimeField(
         auto_now_add=True
@@ -138,12 +137,11 @@ class Voting(models.Model):
 
     def get_absolute_url(self):
         return reverse('votes:votes_single', kwargs={
-            'id': self.id
+            'slug': self.slug
         })
 
 
 def slug_save(sender, instance, *args, **kwargs):
-    print("Request finished!")
     if not instance.slug:
         instance.slug = unique_slug_generator(instance, instance.title, instance.slug)
 

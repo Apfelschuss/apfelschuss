@@ -55,8 +55,8 @@ def archive(request):
     return render(request, 'votes/archive.html', context)
 
 
-def voting(request, id):
-    voting = get_object_or_404(Voting, id=id)
+def voting(request, slug):
+    voting = get_object_or_404(Voting, slug=slug)
     context = {
         'voting': voting
     }

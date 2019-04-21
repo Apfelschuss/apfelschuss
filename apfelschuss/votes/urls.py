@@ -6,5 +6,5 @@ urlpatterns = [
     path('', views.featured, name='votes_featured'),
     path('archive/', views.archive, name='votes_archive'),
     path('search/', views.search, name='votes_search'),
-    path('<int:id>/', views.voting, name='votes_single')
+    path('<slug:slug>/', views.voting, name='votes_single')
 ]
