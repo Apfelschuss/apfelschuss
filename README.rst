@@ -67,7 +67,7 @@ Open a terminal at the project root and run the following for local development:
     $ docker-compose -f local.yml up
 
 Useful Django and Python commands
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------
 
 As with any shell command that we wish to run in our container, this is done using the ``docker-compose -f local.yml run --rm`` command.
 
@@ -80,7 +80,7 @@ Creating a superuser::
 
     $ docker-compose -f local.yml run --rm django python manage.py createsuperuser
 
-Testing wiht Pytest_::
+Testing with Pytest_::
 
     $ docker-compose -f local.yml run --rm django pytest
 
