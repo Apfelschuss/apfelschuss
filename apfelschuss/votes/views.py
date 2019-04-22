@@ -5,6 +5,22 @@ from django.shortcuts import render, get_object_or_404
 from apfelschuss.votes.models import Category, Voting
 
 
+def category_latest(request):
+    '''Returns latest category that is published=True and its votes.
+    '''
+    try:
+        category_latest = Category.objects.filter(published=True).latest('voting_date')
+        votes = category_latest.voting_set.all()
+    except Category.DoesNotExist:
+        category_latest = None
+        votes = None
+    context = {
+        'category_latest': category_latest,
+        'votes': votes
+    }
+    return render(request, 'votes/category_latest.html', context)
+
+
 def search(request):
     '''Search query in voting title and description and returns
     voting objects.

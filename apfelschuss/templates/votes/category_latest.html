@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+{% if category_latest.title|length > 0 %}
+    <h1>{{ category_latest.title }}</h1>
+
+        {% for voting in votes %}
+          <p>
+            {{ voting.title }}
+          </p>
+        {% endfor %}
+
+
+
+{% else %}
+    <h1>Nothing to be listed here</h1>
+{% endif %}
+
+{% endblock %}

@@ -52,7 +52,11 @@ class Category(models.Model):
         auto_now=True
         )
     published = models.BooleanField(
-        default=True
+        default=False
+        )
+    featured = models.BooleanField(
+        default=False,
+        verbose_name="Featured category"
         )
 
     def __str__(self):
@@ -77,7 +81,7 @@ class Voting(models.Model):
         auto_now=True
         )
     published = models.BooleanField(
-        default=True,
+        default=False,
         verbose_name="Voting published"
         )
     description = HTMLField(
@@ -117,7 +121,7 @@ class Voting(models.Model):
         )
     featured = models.BooleanField(
         default=False,
-        verbose_name="Show on home"
+        verbose_name="Featured voting"
         )
     previous_voting = models.ForeignKey(
         'self',
