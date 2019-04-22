@@ -7,8 +7,6 @@ from django.views import defaults as default_views
 
 from filebrowser.sites import site
 
-from apfelschuss.votes.views import featured
-
 urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
