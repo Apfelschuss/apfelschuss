@@ -66,37 +66,40 @@ Open a terminal at the project root and run the following for local development:
 
     $ docker-compose -f local.yml up
 
-As with any shell command that we wish to run in our container, this is done using the ``docker-compose -f local.yml run --rm`` command. ::
+Useful Django and Python commands
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Make migrations and migrate database: ::
+As with any shell command that we wish to run in our container, this is done using the ``docker-compose -f local.yml run --rm`` command.
+
+Make migrations and migrate database::
 
     $ docker-compose -f local.yml run --rm django python manage.py makemigrations
     $ docker-compose -f local.yml run --rm django python manage.py migrate
 
-Creating a superuser: ::
+Creating a superuser::
 
     $ docker-compose -f local.yml run --rm django python manage.py createsuperuser
 
-Testing wiht Pytest_: ::
+Testing wiht Pytest_::
 
     $ docker-compose -f local.yml run --rm django pytest
 
 .. _Pytest: https://docs.pytest.org/en/latest/example/simple.html
 
-Check test coverage, and generate an HTML coverage report: ::
+Check test coverage, and generate an HTML coverage report::
 
     $ docker-compose -f local.yml run django coverage run -m pytest
     $ docker-compose -f local.yml run django coverage report
 
-For unit tests, run: ::
+For unit tests, run::
 
     $ docker-compose -f local.yml run --rm django python manage.py test
 
-Check linting with flake8: ::
+Check linting with flake8::
 
     $ docker-compose -f local.yml run --rm django flake8
 
-Running type checks with mypy: ::
+Running type checks with mypy::
 
     $ docker-compose -f local.yml run --rm django mypy apfelschuss
 
