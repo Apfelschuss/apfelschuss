@@ -34,6 +34,19 @@ Prerequisites
 .. _`Node.js`: https://nodejs.org/en/
 
 
+Generating assets
+^^^^^^^^^^^^^^^^^
+
+1. Run in the root ``npm install``
+2. Run ``npm run build``
+
+For frontend development (sass, js and image generation) you can run ``npm run watch``. Assets are generated via webpack_ located in `apfelschuss/src`_ folder and will be moved to `apfelschuss/static`_.
+
+.. _webpack : https://webpack.js.org
+.. _`apfelschuss/src`: https://github.com/Apfelschuss/apfelschuss/tree/master/apfelschuss/src
+.. _`apfelschuss/static`: https://github.com/Apfelschuss/apfelschuss/tree/master/apfelschuss/static
+
+
 Basic Commands
 --------------
 
