@@ -66,6 +66,8 @@ Open a terminal at the project root and run the following for local development:
 
     $ docker-compose -f local.yml up
 
+Open a browser window and type ``http://127.0.0.1:8000``
+
 Useful Django and Python commands
 ---------------------------------
 
