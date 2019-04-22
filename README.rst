@@ -46,44 +46,59 @@ For frontend development (sass, js and image generation on the fly) you can run 
 .. _`apfelschuss/static`: https://github.com/Apfelschuss/apfelschuss/tree/master/apfelschuss/static
 .. _webpack : https://webpack.js.org
 
-Basic Commands
---------------
 
-Setting Up Your Users
-^^^^^^^^^^^^^^^^^^^^^
+Running locally with Docker
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+This brings up both Django and PostgreSQL. The first time it is run it might take a while to get started, but subsequent runs will occur quickly.
 
-* To create an **superuser account**, use this command::
+Build the stack
+~~~~~~~~~~~~~~~
 
-    $ python manage.py createsuperuser
+Open a terminal at the project root and run the following for local development::
 
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
+    $ docker-compose -f local.yml up
 
-Type checks
-^^^^^^^^^^^
+Run the stack
+~~~~~~~~~~~~~
 
-Running type checks with mypy:
+Open a terminal at the project root and run the following for local development::
 
-::
+    $ docker-compose -f local.yml up
 
-  $ mypy apfelschuss
+As with any shell command that we wish to run in our container, this is done using the ``docker-compose -f local.yml run --rm`` command. ::
 
-Test coverage
-^^^^^^^^^^^^^
+Make migrations and migrate database: ::
 
-To run the tests, check your test coverage, and generate an HTML coverage report::
+    $ docker-compose -f local.yml run --rm django python manage.py makemigrations
+    $ docker-compose -f local.yml run --rm django python manage.py migrate
 
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
+Creating a superuser: ::
 
-Running tests with py.test
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+    $ docker-compose -f local.yml run --rm django python manage.py createsuperuser
 
-::
+Testing wiht Pytest_: ::
 
-  $ pytest
+    $ docker-compose -f local.yml run --rm django pytest
+
+.. _Pytest: https://docs.pytest.org/en/latest/example/simple.html
+
+Check test coverage, and generate an HTML coverage report: ::
+
+    $ docker-compose -f local.yml run django coverage run -m pytest
+    $ docker-compose -f local.yml run django coverage report
+
+For unit tests, run: ::
+
+    $ docker-compose -f local.yml run --rm django python manage.py test
+
+Check linting with flake8: ::
+
+    $ docker-compose -f local.yml run --rm django flake8
+
+Running type checks with mypy: ::
+
+    $ docker-compose -f local.yml run --rm django mypy apfelschuss
 
 
 Credits
