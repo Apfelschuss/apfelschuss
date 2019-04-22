@@ -17,12 +17,22 @@ Deployed application of this project on `apfelschuss.herokuapp.com`_.
 .. _read on Wikipedia: https://en.wikipedia.org/wiki/Voting_in_Switzerland
 .. _`apfelschuss.herokuapp.com`: https://apfelschuss.herokuapp.com/
 
-Settings
---------
+Getting Up and Running locally
+------------------------------
 
-Moved to settings_.
+The steps below will get you up and running with a local development environment. All of these commands assume you are in the root of your generated project.
 
-.. _settings: http://cookiecutter-django.readthedocs.io/en/latest/settings.html
+Prerequisites
+^^^^^^^^^^^^^
+
+* Docker; if you don't have it yet, follow the `installation instructions`_;
+* Docker Compose; refer to the official documentation for the `installation guide`_.
+* `Node.js`_ JavaScript runtime for generating the frontend assets.
+
+.. _`installation instructions`: https://docs.docker.com/install/#supported-platforms
+.. _`installation guide`: https://docs.docker.com/compose/install/
+.. _`Node.js`: https://nodejs.org/en/
+
 
 Basic Commands
 --------------
@@ -69,12 +79,16 @@ Credits
 
 Many thanks to:
 
-- the contributors_. Actually at the moment it is just one, but everyone is welcome.
-- `Cookiecutter Django`_ is a framework for jumpstarting production-ready Django projects.
-- `sentry.io`_ open source error tracking that helps developers monitor and fix crashes in real time.
-- `pyup.io`_ Python dependency security that keeps your dependencies up-to-date and compliant.
+* the contributors_. Actually at the moment it is just one, but everyone is welcome.
+* Django_ the web framework for perfectionists with deadlines.
+* All package providers of this project (see `requirements folder`_).
+* `Cookiecutter Django`_ is a framework for jumpstarting production-ready Django projects.
+* `sentry.io`_ open source error tracking that helps developers monitor and fix crashes in real time.
+* `pyup.io`_ Python dependency security that keeps your dependencies up-to-date and compliant.
 
 .. _contributors: https://github.com/Apfelschuss/apfelschuss/graphs/contributors
+.. _Django: https://www.djangoproject.com
+.. _`requirements folder`: https://github.com/Apfelschuss/apfelschuss/tree/master/requirements
 .. _`Cookiecutter Django`: https://github.com/pydanny/cookiecutter-django
 .. _`sentry.io`: https://sentry.io
 .. _`pyup.io`: https://pyup.io/
@@ -82,8 +96,9 @@ Many thanks to:
 License
 -------
 
-Apfelschuss is published under the `GNU GPLv3`_ license.
+Apfelschuss is published under the `GNU GPLv3`_ license. See `license file`_ for more details.
 
 **TL;DR**: You may copy, distribute and modify the software as long as you track changes/dates in source files. Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL along with build & install instructions.
 
 .. _`GNU GPLv3`: https://www.gnu.org/licenses/gpl-3.0.html
+.. _`license file`: https://github.com/Apfelschuss/apfelschuss/blob/master/LICENSE
