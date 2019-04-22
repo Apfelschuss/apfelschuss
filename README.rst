@@ -135,15 +135,3 @@ Apfelschuss is published under the `GNU GPLv3`_ license. See `license file`_ for
 
 .. _`GNU GPLv3`: https://www.gnu.org/licenses/gpl-3.0.html
 .. _`license file`: https://github.com/Apfelschuss/apfelschuss/blob/master/LICENSE
-
-Social Media
-------------
-* Facebook_: facebook.com/apfelschuss.io
-* Instagram_: instagram.com/apfelschuss.io
-* Twitter_: twitter.com/apfelschuss_io
-
-.. _Facebook: https://www.facebook.com/apfelschuss.io
-.. _Instagram: https://www.instagram.com/apfelschuss.io
-.. _Twitter: https://twitter.com/apfelschuss_io
-
-
