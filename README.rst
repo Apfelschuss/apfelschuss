@@ -111,7 +111,7 @@ Credits
 
 Many thanks to:
 
-* the contributors_. Actually at the moment it is just one, but everyone is welcome.
+* The contributors_. Actually at the moment it is just one, but everyone is welcome.
 * Django_ the web framework for perfectionists with deadlines.
 * All package providers of this project (see `requirements folder`_).
 * `Cookiecutter Django`_ is a framework for jumpstarting production-ready Django projects.
