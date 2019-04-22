@@ -2,16 +2,19 @@ from django.db.models import Count, Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
 
-from apfelschuss.votes.models import Voting
+from apfelschuss.votes.models import Category, Voting
 
 
 def search(request):
+    '''Search query in voting title and description and returns
+    voting objects.
+    '''
     queryset = Voting.objects.all()
     query = request.GET.get('q')
     if query:
         queryset = queryset.filter(
             Q(title__icontains=query) |
-            Q(overview__icontains=query)
+            Q(description__icontains=query)
         ).distinct()
     context = {
         'queryset': queryset
@@ -20,6 +23,9 @@ def search(request):
 
 
 def get_category_count():
+    '''Counts number of votings in every category. Returns all categories
+    and quantity of its votings.
+    '''
     queryset = Voting \
         .objects \
         .values('categories__title') \
@@ -28,6 +34,8 @@ def get_category_count():
 
 
 def featured(request):
+    '''Retunrs all voting models with featured=True.
+    '''
     featured = Voting.objects.filter(featured=True)
     context = {
         'object_list': featured
@@ -36,6 +44,8 @@ def featured(request):
 
 
 def archive(request):
+    '''Returns all voting models paginated including category count.
+    '''
     category_count = get_category_count()
     voting_list = Voting.objects.all()
     paginator = Paginator(voting_list, 3)
@@ -56,6 +66,8 @@ def archive(request):
 
 
 def voting(request, slug):
+    '''Takes slug of single voting and returns that voting object.
+    '''
     voting = get_object_or_404(Voting, slug=slug)
     context = {
         'voting': voting
