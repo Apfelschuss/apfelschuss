@@ -7,13 +7,14 @@ Apfelschuss
      :target: https://github.com/ambv/black
      :alt: Black code style
 
-All Swiss citizens who have reached the age of 18 are entitled to vote and participate in elections at federal level. Approximately four times a year, voting occurs over various issues.
+All Swiss citizens who have reached the age of 18 are `entitled to vote`_ and participate in elections at federal level. Approximately four times a year, voting occurs over various issues.
 
 Apfelschuss is a web application that wants support Swiss in their decision-making. Registered users indicate prior to the votes whether they will accept or decline the individual initiatives and referendums.
 More about voting in Switzerland can be `read on Wikipedia`_.
 
 Deployed application of this project on `apfelschuss.herokuapp.com`_.
 
+.. _entitled to vote: https://youtu.be/yltRgOFYD-w
 .. _read on Wikipedia: https://en.wikipedia.org/wiki/Voting_in_Switzerland
 .. _`apfelschuss.herokuapp.com`: https://apfelschuss.herokuapp.com/
 
