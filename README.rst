@@ -40,12 +40,11 @@ Generating assets
 1. Run in the root ``npm install``
 2. Run ``npm run build``
 
-For frontend development (sass, js and image generation) you can run ``npm run watch``. Assets are generated via webpack_ located in `apfelschuss/src`_ folder and will be moved to `apfelschuss/static`_.
+For frontend development (sass, js and image generation on the fly) you can run ``npm run watch``. Assets are located in `apfelschuss/src`_ folder and will be moved to `apfelschuss/static`_. This project uses webpack_ as assets bundler.
 
-.. _webpack : https://webpack.js.org
 .. _`apfelschuss/src`: https://github.com/Apfelschuss/apfelschuss/tree/master/apfelschuss/src
 .. _`apfelschuss/static`: https://github.com/Apfelschuss/apfelschuss/tree/master/apfelschuss/static
-
+.. _webpack : https://webpack.js.org
 
 Basic Commands
 --------------
