@@ -42,8 +42,8 @@ Generating assets
 
 For frontend development (sass, js and image generation on the fly) you can run ``npm run watch``. Assets are located in `apfelschuss/src`_ folder and will be moved to `apfelschuss/static`_. This project uses webpack_ as assets bundler.
 
-.. _`apfelschuss/src`: https://github.com/Apfelschuss/apfelschuss/tree/master/apfelschuss/src
-.. _`apfelschuss/static`: https://github.com/Apfelschuss/apfelschuss/tree/master/apfelschuss/static
+.. _`apfelschuss/src`: ./apfelschuss/src
+.. _`apfelschuss/static`: ./apfelschuss/static
 .. _webpack : https://webpack.js.org
 
 
@@ -140,9 +140,9 @@ Many thanks to:
 * `sentry.io`_ open source error tracking that helps developers monitor and fix crashes in real time.
 * `pyup.io`_ Python dependency security that keeps your dependencies up-to-date and compliant.
 
-.. _contributors: https://github.com/Apfelschuss/apfelschuss/graphs/contributors
+.. _contributors: ./graphs/contributors
 .. _Django: https://www.djangoproject.com
-.. _`requirements folder`: https://github.com/Apfelschuss/apfelschuss/tree/master/requirements
+.. _`requirements folder`: ./requirements
 .. _`Cookiecutter Django`: https://github.com/pydanny/cookiecutter-django
 .. _`sentry.io`: https://sentry.io
 .. _`pyup.io`: https://pyup.io/
@@ -155,4 +155,4 @@ Apfelschuss is published under the `GNU GPLv3`_ license. See `license file`_ for
 **TL;DR**: You may copy, distribute and modify the software as long as you track changes/dates in source files. Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL along with build & install instructions.
 
 .. _`GNU GPLv3`: https://www.gnu.org/licenses/gpl-3.0.html
-.. _`license file`: https://github.com/Apfelschuss/apfelschuss/blob/master/LICENSE
+.. _`license file`: ./LICENSE
