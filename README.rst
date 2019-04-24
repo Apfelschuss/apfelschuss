@@ -117,11 +117,11 @@ We aim to keep up translations of the four Swiss national languages. Default lan
 * it-CH (Italian)
 * rm (Raeto-Romance)
 
-Create message files for all languages (\*.po files)::
+Create message files for all languages (see \*.po files in `locale folder`_)::
 
     $ docker-compose -f local.yml run django python manage.py makemessages -l de_CH -l fr_CH -l it_CH -l rm
 
-Compile messages for creating \*.mo files based on \*.po files (see `locale folder`_) with following command::
+Compile messages for creating \*.mo files based on \*.po files with following command::
 
     $ docker-compose -f local.yml run --rm django python manage.py compilemessages
 
