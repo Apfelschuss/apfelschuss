@@ -46,6 +46,10 @@
 
   <body class="d-flex flex-column h-100">
 
+    {% get_current_language as LANGUAGE_CODE %}
+
+    {{ LANGUAGE_CODE }}
+
     {% include 'header.html' %}
 
     <main id="content" class="flex-shrink-0" role="main">

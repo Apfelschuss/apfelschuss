@@ -106,6 +106,28 @@ Running type checks with mypy::
     $ docker-compose -f local.yml run --rm django mypy apfelschuss
 
 
+Internationalization and Localization
+-------------------------------------
+
+We aim to keep up translations of the four Swiss national languages. Default language is English:
+
+* en-US (English)
+* de-CH (German)
+* fr-CH (French)
+* it-CH (Italian)
+* rm (Raeto-Romance)
+
+Create message files for all languages (\*.po files)::
+
+    $ docker-compose -f local.yml run django python manage.py makemessages -l de_CH -l fr_CH -l it_CH -l rm
+
+Compile messages for creating \*.mo files based on \*.po files (see `locale folder`_) with following command::
+
+    $ docker-compose -f local.yml run --rm django python manage.py compilemessages
+
+.. _`locale folder`: https://github.com/Apfelschuss/apfelschuss/tree/master/locale
+
+
 Credits
 -------
 

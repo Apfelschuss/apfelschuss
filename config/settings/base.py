@@ -266,3 +266,14 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
     }
+
+
+# Internationalization and Localization
+# ------------------------------------------------------------------------------
+LANGUAGES = [
+    ('en-us', 'English'),
+    ('de-ch', 'German'),
+    ('de-fr', 'French'),
+    ('de-it', 'Italian'),
+    ('rm', 'Raeto-Romance'),
+]

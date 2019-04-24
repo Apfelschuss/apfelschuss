@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.urls import include, path
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
@@ -13,14 +14,17 @@ urlpatterns = [
     # User management
     path("users/", include("apfelschuss.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
-    # Your stuff: custom urls includes go here
-    path("terms-of-use/", TemplateView.as_view(template_name="pages/terms_of_use.html"), name="terms_of_use"),
-    path("legal-notice/", TemplateView.as_view(template_name="pages/legal_notice.html"), name="legal_notice"),
-    path("", include("apfelschuss.votes.urls", namespace="votes")),
     # Additional tools
     path("tinymce/", include("tinymce.urls")),
     path(settings.ADMIN_URL+"filebrowser/", site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += i18n_patterns (
+    path("terms-of-use/", TemplateView.as_view(template_name="pages/terms_of_use.html"), name="terms_of_use"),
+    path("legal-notice/", TemplateView.as_view(template_name="pages/legal_notice.html"), name="legal_notice"),
+    path("", include("apfelschuss.votes.urls", namespace="votes")),
+    prefix_default_language=False,
+)
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
