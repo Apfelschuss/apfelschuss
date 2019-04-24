@@ -140,7 +140,7 @@ Many thanks to:
 * `sentry.io`_ open source error tracking that helps developers monitor and fix crashes in real time.
 * `pyup.io`_ Python dependency security that keeps your dependencies up-to-date and compliant.
 
-.. _contributors: ./graphs/contributors
+.. _contributors: https://github.com/Apfelschuss/apfelschuss/graphs/contributors
 .. _Django: https://www.djangoproject.com
 .. _`requirements folder`: ./requirements
 .. _`Cookiecutter Django`: https://github.com/pydanny/cookiecutter-django
