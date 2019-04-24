@@ -125,7 +125,7 @@ Compile messages for creating \*.mo files based on \*.po files with following co
 
     $ docker-compose -f local.yml run --rm django python manage.py compilemessages
 
-.. _`locale folder`: https://github.com/Apfelschuss/apfelschuss/tree/master/locale
+.. _`locale folder`: ./apfelschuss/tree/master/locale
 
 
 Credits
