@@ -111,15 +111,15 @@ Internationalization and Localization
 
 We aim to keep up translations of the four Swiss national languages. Default language is English:
 
-* en-US (English)
-* de-CH (German)
-* fr-CH (French)
-* it-CH (Italian)
+* en (English)
+* de (German)
+* fr (French)
+* it (Italian)
 * rm (Raeto-Romance)
 
 Create message files for all languages (see \*.po files in `locale folder`_)::
 
-    $ docker-compose -f local.yml run django python manage.py makemessages -l de_CH -l fr_CH -l it_CH -l rm
+    $ docker-compose -f local.yml run django python manage.py makemessages -l de -l fr -l it -l rm
 
 Compile messages for creating \*.mo files based on \*.po files with following command::
 

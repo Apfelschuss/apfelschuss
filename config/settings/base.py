@@ -26,7 +26,7 @@ DEBUG = env.bool("DJANGO_DEBUG", False)
 # In Windows, this must be set to your system time zone.
 TIME_ZONE = "UTC"
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en"
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
@@ -126,6 +126,7 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -270,10 +271,14 @@ TINYMCE_DEFAULT_CONFIG = {
 
 # Internationalization and Localization
 # ------------------------------------------------------------------------------
+LOCALE_PATHS = [
+    ROOT_DIR.path("locale")
+]
+
 LANGUAGES = [
-    ('en-us', 'English'),
-    ('de-ch', 'German'),
-    ('de-fr', 'French'),
-    ('de-it', 'Italian'),
+    ('en', 'English'),
+    ('de', 'German'),
+    ('fr', 'French'),
+    ('it', 'Italian'),
     ('rm', 'Raeto-Romance'),
 ]

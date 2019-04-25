@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 20:27+0000\n"
+"POT-Creation-Date: 2019-04-25 20:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -273,12 +273,12 @@ msgid ""
 "mail address</a>."
 msgstr ""
 
-#: apfelschuss/templates/header.html:24
-msgid "My Profile"
+#: apfelschuss/templates/base.html:53
+msgid "let's translate this"
 msgstr ""
 
-#: apfelschuss/templates/votes/category_latest.html:7
-msgid "string for translation"
+#: apfelschuss/templates/header.html:24
+msgid "My Profile"
 msgstr ""
 
 #: apfelschuss/users/forms.py:16
