@@ -125,9 +125,8 @@ Compile messages for creating \*.mo files based on \*.po files with following co
 
     $ docker-compose -f local.yml run --rm django python manage.py compilemessages
 
-
-    We use a web service called Transifex for translating the text strings and would be more than happy if someone would contribute to the translations.
-    `https://www.transifex.com/apfelschuss/apfelschuss`_
+We use a web service called Transifex for translating the text strings and would be more than happy if someone would contribute to the translations.
+`https://www.transifex.com/apfelschuss/apfelschuss`_
 
 .. _`locale folder`: ./locale
 .. _`https://www.transifex.com/apfelschuss/apfelschuss`: https://www.transifex.com/apfelschuss/apfelschuss
@@ -144,13 +143,16 @@ Many thanks to:
 * `Cookiecutter Django`_ is a framework for jumpstarting production-ready Django projects.
 * `sentry.io`_ open source error tracking that helps developers monitor and fix crashes in real time.
 * `pyup.io`_ Python dependency security that keeps your dependencies up-to-date and compliant.
+* Transifex_, a localization platform that moves as fast as you do.
 
 .. _contributors: https://github.com/Apfelschuss/apfelschuss/graphs/contributors
 .. _Django: https://www.djangoproject.com
 .. _`requirements folder`: ./requirements
 .. _`Cookiecutter Django`: https://github.com/pydanny/cookiecutter-django
 .. _`sentry.io`: https://sentry.io
-.. _`pyup.io`: https://pyup.io/
+.. _`pyup.io`: https://pyup.io
+.. _Transifex: https://www.transifex.com/
+
 
 License
 -------
