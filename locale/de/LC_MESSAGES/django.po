@@ -1,4 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
+# Apfelschuss.io
 # Copyright (C) 2019 Philipp Bruhin
 # This file is distributed under the same license as the PACKAGE package.
 # apfelschuss.io@gmail.com, 2019.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 18:25+0000\n"
+"POT-Creation-Date: 2019-04-27 20:05+0000\n"
 "PO-Revision-Date: 2019-04-26 08:22+0000\n"
 "Last-Translator: Philipp Bruhin <info@philippbruhin.ch>, 2019\n"
 "Language-Team: German (https://www.transifex.com/apfelschuss/teams/98466/"
