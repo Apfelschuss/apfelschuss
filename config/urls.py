@@ -11,18 +11,18 @@ from filebrowser.sites import site
 urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
-    # User management
-    path("users/", include("apfelschuss.users.urls", namespace="users")),
-    path("accounts/", include("allauth.urls")),
     # Additional tools
     path("tinymce/", include("tinymce.urls")),
     path(settings.ADMIN_URL+"filebrowser/", site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += i18n_patterns (
+    path("users/", include("apfelschuss.users.urls", namespace="users")),
+    path("accounts/", include("allauth.urls")),
     path("terms-of-use/", TemplateView.as_view(template_name="pages/terms_of_use.html"), name="terms_of_use"),
     path("legal-notice/", TemplateView.as_view(template_name="pages/legal_notice.html"), name="legal_notice"),
     path("", include("apfelschuss.votes.urls", namespace="votes")),
+    # No en/ prefix
     prefix_default_language=False,
 )
 

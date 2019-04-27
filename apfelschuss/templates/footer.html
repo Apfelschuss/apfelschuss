@@ -2,10 +2,10 @@
   <div class="container">
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'legal_notice' %}active{% endif %}" href="{% url 'legal_notice' %}">Legal notice</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'legal_notice' %}active{% endif %}" href="{% url 'legal_notice' %}">{% trans "Legal notice" %}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'terms_of_use' %}active{% endif %}" href="{% url 'terms_of_use' %}">Terms of use</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'terms_of_use' %}active{% endif %}" href="{% url 'terms_of_use' %}">{% trans "Terms of use" %}</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="https://github.com/apfelschuss/apfelschuss">GitHub</a>

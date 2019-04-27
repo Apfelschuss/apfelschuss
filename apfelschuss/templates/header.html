@@ -11,10 +11,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item {% if request.resolver_match.url_name == 'votes_featured' %}active{% endif %}">
-          <a class="nav-link" href="{% url 'votes:votes_featured' %}">Home</a>
+          <a class="nav-link" href="{% url 'votes:votes_featured' %}">{% trans "Home" %}</a>
         </li>
         <li class="nav-item {% if request.resolver_match.url_name == 'votes_archive' %}active{% endif %}">
-          <a class="nav-link" href="{% url 'votes:votes_archive' %}">Archive</a>
+          <a class="nav-link" href="{% url 'votes:votes_archive' %}">{% trans "Archive" %}</a>
         </li>
       </ul>
       <ul class="navbar-nav">
