@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 14:46+0000\n"
+"POT-Creation-Date: 2019-04-27 18:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -111,7 +111,7 @@ msgstr ""
 #: apfelschuss/templates/account/login.html:7
 #: apfelschuss/templates/account/login.html:11
 #: apfelschuss/templates/account/login.html:44
-#: apfelschuss/templates/header.html:37
+#: apfelschuss/templates/shared/header.html:40
 msgid "Sign In"
 msgstr ""
 
@@ -142,7 +142,7 @@ msgstr ""
 #: apfelschuss/templates/account/logout.html:5
 #: apfelschuss/templates/account/logout.html:8
 #: apfelschuss/templates/account/logout.html:17
-#: apfelschuss/templates/header.html:28
+#: apfelschuss/templates/shared/header.html:31
 msgid "Sign Out"
 msgstr ""
 
@@ -220,7 +220,7 @@ msgstr ""
 
 #: apfelschuss/templates/account/signup.html:9
 #: apfelschuss/templates/account/signup.html:19
-#: apfelschuss/templates/header.html:33
+#: apfelschuss/templates/shared/header.html:36
 msgid "Sign Up"
 msgstr ""
 
@@ -274,23 +274,23 @@ msgid ""
 "mail address</a>."
 msgstr ""
 
-#: apfelschuss/templates/footer.html:5
+#: apfelschuss/templates/shared/footer.html:5
 msgid "Legal notice"
 msgstr ""
 
-#: apfelschuss/templates/footer.html:8
+#: apfelschuss/templates/shared/footer.html:8
 msgid "Terms of use"
 msgstr ""
 
-#: apfelschuss/templates/header.html:14
+#: apfelschuss/templates/shared/header.html:17
 msgid "Home"
 msgstr ""
 
-#: apfelschuss/templates/header.html:17
+#: apfelschuss/templates/shared/header.html:20
 msgid "Archive"
 msgstr ""
 
-#: apfelschuss/templates/header.html:24
+#: apfelschuss/templates/shared/header.html:27
 msgid "My Profile"
 msgstr ""
 
@@ -300,4 +300,24 @@ msgstr ""
 
 #: apfelschuss/users/models.py:11
 msgid "Name of User"
+msgstr ""
+
+#: config/settings/base.py:281
+msgid "English"
+msgstr ""
+
+#: config/settings/base.py:282
+msgid "German"
+msgstr ""
+
+#: config/settings/base.py:283
+msgid "French"
+msgstr ""
+
+#: config/settings/base.py:284
+msgid "Italian"
+msgstr ""
+
+#: config/settings/base.py:285
+msgid "Raeto-Romance"
 msgstr ""

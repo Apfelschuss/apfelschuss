@@ -57,7 +57,7 @@ Build the stack
 
 Open a terminal at the project root and run the following for local development::
 
-    $ docker-compose -f local.yml up
+    $ docker-compose -f local.yml build
 
 Run the stack
 ~~~~~~~~~~~~~

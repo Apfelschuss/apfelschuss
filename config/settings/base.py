@@ -1,6 +1,7 @@
 """
 Base settings to build other settings files upon.
 """
+from django.utils.translation import ugettext_lazy as _
 
 import environ
 
@@ -73,7 +74,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "apfelschuss.users.apps.UsersAppConfig",
     # Your stuff: custom apps go here
-    "apfelschuss.votes.apps.VotesConfig"
+    "apfelschuss.votes.apps.VotesConfig",
+    "apfelschuss.i18n.apps.I18NConfig"
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -276,9 +278,9 @@ LOCALE_PATHS = [
 ]
 
 LANGUAGES = [
-    ('en', 'English'),
-    ('de', 'German'),
-    ('fr', 'French'),
-    ('it', 'Italian'),
-    ('rm', 'Raeto-Romance'),
+    ('en', _('English')), # Default language always at first position
+    ('de', _('German')),
+    ('fr', _('French')),
+    ('it', _('Italian')),
+    ('rm', _('Raeto-Romance')),
 ]

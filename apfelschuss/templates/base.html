@@ -1,16 +1,16 @@
 {% load static i18n %}<!DOCTYPE html>
 <html lang="en" class="h-100">
 
-  {% include 'head.html' %}
+  {% include 'shared/head.html' %}
 
   <body class="d-flex flex-column h-100">
 
     {% get_current_language as LANGUAGE_CODE %}
 
-    {% include 'header.html' %}
+    {% include 'shared/header.html' %}
 
     <main id="content" class="flex-shrink-0" role="main">
-      <div class="container">
+      <div class="container my-5">
 
         {% if messages %}
             {% for message in messages %}
@@ -25,7 +25,7 @@
       </div> <!-- /container -->
     </main>
 
-    {% include 'footer.html' %}
+    {% include 'shared/footer.html' %}
 
     {% block modal %}{% endblock modal %}
 
