@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-25 20:16+0000\n"
+"POT-Creation-Date: 2019-04-27 14:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -272,6 +272,22 @@ msgstr ""
 msgid ""
 "<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
 "mail address</a>."
+msgstr ""
+
+#: apfelschuss/templates/footer.html:5
+msgid "Legal notice"
+msgstr ""
+
+#: apfelschuss/templates/footer.html:8
+msgid "Terms of use"
+msgstr ""
+
+#: apfelschuss/templates/header.html:14
+msgid "Home"
+msgstr ""
+
+#: apfelschuss/templates/header.html:17
+msgid "Archive"
 msgstr ""
 
 #: apfelschuss/templates/header.html:24
