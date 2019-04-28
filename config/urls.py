@@ -16,7 +16,7 @@ urlpatterns = [
     path(settings.ADMIN_URL+"filebrowser/", site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-urlpatterns += i18n_patterns (
+urlpatterns += i18n_patterns(
     path('i18n/', include("django.conf.urls.i18n")),
     path("users/", include("apfelschuss.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),

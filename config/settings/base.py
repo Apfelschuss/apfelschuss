@@ -278,7 +278,7 @@ LOCALE_PATHS = [
 ]
 
 LANGUAGES = [
-    ('en', _('English')), # Default language always at first position
+    ('en', _('English')),  # Default language always at first position
     ('de', _('German')),
     ('fr', _('French')),
     ('it', _('Italian')),
