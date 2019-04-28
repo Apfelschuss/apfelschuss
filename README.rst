@@ -42,8 +42,8 @@ Generating assets
 
 For frontend development (sass, js and image generation on the fly) you can run ``npm run watch``. Assets are located in `apfelschuss/src`_ folder and will be moved to `apfelschuss/static`_. This project uses webpack_ as assets bundler.
 
-.. _`apfelschuss/src`: https://github.com/Apfelschuss/apfelschuss/tree/master/apfelschuss/src
-.. _`apfelschuss/static`: https://github.com/Apfelschuss/apfelschuss/tree/master/apfelschuss/static
+.. _`apfelschuss/src`: ./apfelschuss/src
+.. _`apfelschuss/static`: ./apfelschuss/static
 .. _webpack : https://webpack.js.org
 
 
@@ -57,7 +57,7 @@ Build the stack
 
 Open a terminal at the project root and run the following for local development::
 
-    $ docker-compose -f local.yml up
+    $ docker-compose -f local.yml build
 
 Run the stack
 ~~~~~~~~~~~~~
@@ -106,6 +106,33 @@ Running type checks with mypy::
     $ docker-compose -f local.yml run --rm django mypy apfelschuss
 
 
+Internationalization and Localization
+-------------------------------------
+
+We aim to keep up translations of the `four Swiss national languages`_. Default language is English:
+
+* en (English)
+* de (German)
+* fr (French)
+* it (Italian)
+* rm (Raeto-Romance)
+
+Create message files for all languages (see \*.po files in `locale folder`_)::
+
+    $ docker-compose -f local.yml run django python manage.py makemessages -l de -l fr -l it -l rm
+
+Compile messages for creating \*.mo files based on \*.po files with following command::
+
+    $ docker-compose -f local.yml run --rm django python manage.py compilemessages
+
+We use a web service called Transifex for translating the text strings and would be more than happy if someone would contribute to the translations:
+`https://www.transifex.com/apfelschuss/apfelschuss`_. Just create an account on Transifex if you haven't one and start helping to translate.
+
+.. _`four Swiss national languages`: https://en.wikipedia.org/wiki/Languages_of_Switzerland
+.. _`locale folder`: ./locale
+.. _`https://www.transifex.com/apfelschuss/apfelschuss`: https://www.transifex.com/apfelschuss/apfelschuss
+
+
 Credits
 -------
 
@@ -117,13 +144,16 @@ Many thanks to:
 * `Cookiecutter Django`_ is a framework for jumpstarting production-ready Django projects.
 * `sentry.io`_ open source error tracking that helps developers monitor and fix crashes in real time.
 * `pyup.io`_ Python dependency security that keeps your dependencies up-to-date and compliant.
+* Transifex_, a localization platform that moves as fast as you do.
 
 .. _contributors: https://github.com/Apfelschuss/apfelschuss/graphs/contributors
 .. _Django: https://www.djangoproject.com
-.. _`requirements folder`: https://github.com/Apfelschuss/apfelschuss/tree/master/requirements
+.. _`requirements folder`: ./requirements
 .. _`Cookiecutter Django`: https://github.com/pydanny/cookiecutter-django
 .. _`sentry.io`: https://sentry.io
-.. _`pyup.io`: https://pyup.io/
+.. _`pyup.io`: https://pyup.io
+.. _Transifex: https://www.transifex.com/
+
 
 License
 -------
@@ -133,4 +163,4 @@ Apfelschuss is published under the `GNU GPLv3`_ license. See `license file`_ for
 **TL;DR**: You may copy, distribute and modify the software as long as you track changes/dates in source files. Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL along with build & install instructions.
 
 .. _`GNU GPLv3`: https://www.gnu.org/licenses/gpl-3.0.html
-.. _`license file`: https://github.com/Apfelschuss/apfelschuss/blob/master/LICENSE
+.. _`license file`: ./LICENSE

@@ -1,6 +1,7 @@
 """
 Base settings to build other settings files upon.
 """
+from django.utils.translation import ugettext_lazy as _
 
 import environ
 
@@ -26,7 +27,7 @@ DEBUG = env.bool("DJANGO_DEBUG", False)
 # In Windows, this must be set to your system time zone.
 TIME_ZONE = "UTC"
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en"
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
@@ -73,7 +74,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "apfelschuss.users.apps.UsersAppConfig",
     # Your stuff: custom apps go here
-    "apfelschuss.votes.apps.VotesConfig"
+    "apfelschuss.votes.apps.VotesConfig",
+    "apfelschuss.i18n.apps.I18NConfig"
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -124,6 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -266,3 +269,18 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
     }
+
+
+# Internationalization and Localization
+# ------------------------------------------------------------------------------
+LOCALE_PATHS = [
+    ROOT_DIR.path("locale")
+]
+
+LANGUAGES = [
+    ('en', _('English')), # Default language always at first position
+    ('de', _('German')),
+    ('fr', _('French')),
+    ('it', _('Italian')),
+    ('rm', _('Raeto-Romance')),
+]
