@@ -5,6 +5,8 @@ Apfelschuss
     :target: https://travis-ci.org/Apfelschuss/apfelschuss
 .. image:: https://david-dm.org/Apfelschuss/apfelschuss.svg
     :target: https://david-dm.org/Apfelschuss/apfelschuss
+.. image:: https://david-dm.org/dev/Apfelschuss/apfelschuss.svg
+    :target: https://david-dm.org/Apfelschuss/apfelschuss?type=dev
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
      :target: https://github.com/ambv/black
      :alt: Black code style
