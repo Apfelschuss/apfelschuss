@@ -39,24 +39,24 @@
           </li>
         {% endif %}
           <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="{% url 'votes:votes_featured' %}" id="language-switcher" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages %}
+              <a class="nav-link dropdown-toggle" href="#" id="language-switcher" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ LANGUAGE_CODE|upper }}
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="language-switcher">
-                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                    <input name="next" type="hidden" value="{{ redirect_to }}">
-                    <select name="language">
-                        {% get_current_language as LANGUAGE_CODE %}
-                        {% get_available_languages as LANGUAGES %}
-                        {% get_language_info_list for LANGUAGES as languages %}
-                        {% for language in languages %}
-                            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                                {{ language.name_local }} ({{ language.code }})
-                            </option>
-                        {% endfor %}
-                    </select>
-                    <input type="submit" value="Go">
+                <form name="uilangsw" action="{% url 'set_language' %}" method="post">
+                  {% csrf_token %}
+                  <input name="next" type="hidden" value="{{ redirect_to }}">
+                  <input name="language" type="hidden"/>
                 </form>
+                {% for language in languages %}
+                  <a class="dropdown-item {% if language.code == LANGUAGE_CODE %}active{% endif %}"
+                    href="#" onclick="document.uilangsw.language.value='{{ language.code}}'; document.uilangsw.submit();">
+                    {{ language.name_local }}
+                  </a>
+                {% endfor %}
               </div>
           </li>
       </ul>
