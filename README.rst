@@ -6,6 +6,8 @@ Apfelschuss
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
      :target: https://github.com/ambv/black
      :alt: Black code style
+.. image:: https://david-dm.org/Apfelschuss/apfelschuss.svg
+    :target: https://david-dm.org/Apfelschuss/apfelschuss
 
 All Swiss citizens who have reached the age of 18 are `entitled to vote`_ and participate in elections at federal level. Approximately four times a year, voting occurs over various issues.
 

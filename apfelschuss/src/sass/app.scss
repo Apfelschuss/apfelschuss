@@ -2,6 +2,7 @@
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'bootswatch';
 
+// Sticky Footer Start
 .h-100 {
   height: 100%!important;
 }
@@ -12,4 +13,9 @@
 
 .flex-shrink-0 {
   flex-shrink: 0!important;
+}
+// Sticky Footer End
+
+html {
+  overflow-y:scroll;
 }
