@@ -2,6 +2,7 @@
 Base settings to build other settings files upon.
 """
 from django.utils.translation import ugettext_lazy as _
+import django.conf.locale
 
 import environ
 
@@ -75,7 +76,6 @@ LOCAL_APPS = [
     "apfelschuss.users.apps.UsersAppConfig",
     # Your stuff: custom apps go here
     "apfelschuss.votes.apps.VotesConfig",
-    "apfelschuss.i18n.apps.I18NConfig"
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -284,3 +284,17 @@ LANGUAGES = [
     ('it', _('Italian')),
     ('rm', _('Raeto-Romance')),
 ]
+
+# Add custom language Romansh as long as not provided by Django
+# https://github.com/django/django/blob/master/django/conf/locale/__init__.py
+EXTRA_LANG_INFO = {
+    'rm': {
+        'bidi': False,
+        'code': 'rm',
+        'name': 'Romansh',
+        'name_local': 'Romansch',
+    },
+}
+
+LANG_INFO = dict(django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO)
+django.conf.locale.LANG_INFO = LANG_INFO
