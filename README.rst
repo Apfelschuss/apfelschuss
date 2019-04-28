@@ -125,8 +125,8 @@ Compile messages for creating \*.mo files based on \*.po files with following co
 
     $ docker-compose -f local.yml run --rm django python manage.py compilemessages
 
-We use a web service called Transifex for translating the text strings and would be more than happy if someone would contribute to the translations.
-`https://www.transifex.com/apfelschuss/apfelschuss`_
+We use a web service called Transifex for translating the text strings and would be more than happy if someone would contribute to the translations:
+`https://www.transifex.com/apfelschuss/apfelschuss`_. Just create an account on Transifex if you haven't one and start helping to translate.
 
 .. _`four Swiss national languages`: https://en.wikipedia.org/wiki/Languages_of_Switzerland
 .. _`locale folder`: ./locale
