@@ -2,9 +2,11 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.contrib.auth import get_user_model
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
 from filebrowser.fields import FileBrowseField
 from tinymce import HTMLField
+from translated_fields import TranslatedField
 
 from apfelschuss.votes.utils import unique_slug_generator
 
@@ -64,10 +66,19 @@ class Category(models.Model):
 
 
 class Voting(models.Model):
-    title = models.CharField(
-        max_length=160,
-        verbose_name="Voting title"
-        )
+    title =  TranslatedField(
+        models.CharField(
+            _("title"),
+            max_length=160,
+        ),
+        {
+            "en": {"blank": True},
+            "de": {"blank": True},
+            "fr": {"blank": True},
+            "it": {"blank": True},
+            "rm": {"blank": True},
+        },
+    )
     slug = models.SlugField(
         max_length=80,
         unique=True,
