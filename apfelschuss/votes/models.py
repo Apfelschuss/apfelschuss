@@ -66,17 +66,17 @@ class Category(models.Model):
 
 
 class Voting(models.Model):
-    title =  TranslatedField(
+    title = TranslatedField(
         models.CharField(
-            _("title"),
+            verbose_name="Voting title",
             max_length=160,
         ),
         {
-            "en": {"blank": True},
             "de": {"blank": True},
             "fr": {"blank": True},
             "it": {"blank": True},
             "rm": {"blank": True},
+            "en": {"blank": True},
         },
     )
     slug = models.SlugField(
