@@ -95,9 +95,18 @@ class Voting(models.Model):
         default=False,
         verbose_name="Voting published"
         )
-    description = HTMLField(
-        verbose_name="Voting description",
-        blank=True,
+    description =  TranslatedField(
+        HTMLField(
+            verbose_name="Voting description",
+            blank=True,
+            ),
+            {
+                "de": {"blank": True},
+                "fr": {"blank": True},
+                "it": {"blank": True},
+                "rm": {"blank": True},
+                "en": {"blank": True},
+            },
         )
     author = models.ForeignKey(
         Author,
