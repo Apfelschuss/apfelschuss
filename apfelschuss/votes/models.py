@@ -79,12 +79,21 @@ class Voting(models.Model):
             "en": {"blank": True},
         },
     )
-    slug = models.SlugField(
-        max_length=80,
-        unique=True,
-        verbose_name="Voting URL slug",
-        blank=True
-        )
+    slug =  TranslatedField(
+        models.SlugField(
+            max_length=80,
+            unique=False,
+            verbose_name="Voting URL slug",
+            blank=True
+        ),
+        {
+            "de": {"blank": True},
+            "fr": {"blank": True},
+            "it": {"blank": True},
+            "rm": {"blank": True},
+            "en": {"blank": True},
+        },
+    )
     created_at = models.DateTimeField(
         auto_now_add=True
         )
@@ -95,7 +104,7 @@ class Voting(models.Model):
         default=False,
         verbose_name="Voting published"
         )
-    description =  TranslatedField(
+    description = TranslatedField(
         HTMLField(
             verbose_name="Voting description",
             blank=True,
