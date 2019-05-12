@@ -82,9 +82,19 @@ def archive(request):
 
 
 def voting(request, slug):
-    '''Takes slug of single voting and returns that voting object.
+    '''Takes slug of single voting and returns that voting object in
+    corresponding language.
     '''
-    voting = get_object_or_404(Voting, slug=slug)
+    if request.LANGUAGE_CODE == 'de':
+        voting = get_object_or_404(Voting, slug_de=slug)
+    elif request.LANGUAGE_CODE == 'fr':
+        voting = get_object_or_404(Voting, slug_fr=slug)
+    elif request.LANGUAGE_CODE == 'it':
+        voting = get_object_or_404(Voting, slug_it=slug)
+    elif request.LANGUAGE_CODE == 'rm':
+        voting = get_object_or_404(Voting, slug_rm=slug)
+    elif request.LANGUAGE_CODE == 'en':
+        voting = get_object_or_404(Voting, slug_en=slug)
     context = {
         'voting': voting
     }
