@@ -6,9 +6,8 @@ from .models import Author, Category, Voting
 
 admin.site.register(Author)
 admin.site.register(Category)
-#admin.site.register(Voting)
+
 
 @admin.register(Voting)
 class VotingAdmin(TranslatedFieldAdmin, admin.ModelAdmin):
     pass
-

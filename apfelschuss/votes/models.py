@@ -2,7 +2,6 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-from django.utils.translation import gettext_lazy as _
 
 from filebrowser.fields import FileBrowseField
 from tinymce import HTMLField
@@ -79,11 +78,10 @@ class Voting(models.Model):
             "en": {"blank": True},
         },
     )
-    slug =  TranslatedField(
+    slug = TranslatedField(
         models.SlugField(
             max_length=80,
             verbose_name="Voting URL slug",
-            blank=True
         ),
         {
             "de": {"blank": True, "unique": True},
@@ -106,15 +104,14 @@ class Voting(models.Model):
     description = TranslatedField(
         HTMLField(
             verbose_name="Voting description",
-            blank=True,
-            ),
-            {
-                "de": {"blank": True},
-                "fr": {"blank": True},
-                "it": {"blank": True},
-                "rm": {"blank": True},
-                "en": {"blank": True},
-            },
+        ),
+        {
+            "de": {"blank": True},
+            "fr": {"blank": True},
+            "it": {"blank": True},
+            "rm": {"blank": True},
+            "en": {"blank": True},
+        },
         )
     author = models.ForeignKey(
         Author,
@@ -173,10 +170,23 @@ class Voting(models.Model):
         })
 
 
+def slug_save_multilang(sender, instance, *args, **kwargs):
+    if not instance.slug_de:
+        instance.slug_de = unique_slug_generator(instance, instance.title_de, instance.slug_de, 'de')
+    if not instance.slug_fr:
+        instance.slug_fr = unique_slug_generator(instance, instance.title_fr, instance.slug_fr, 'fr')
+    if not instance.slug_it:
+        instance.slug_it = unique_slug_generator(instance, instance.title_it, instance.slug_it, 'it')
+    if not instance.slug_rm:
+        instance.slug_rm = unique_slug_generator(instance, instance.title_rm, instance.slug_rm, 'rm')
+    if not instance.slug_en:
+        instance.slug_en = unique_slug_generator(instance, instance.title_en, instance.slug_en, 'en')
+
+
 def slug_save(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = unique_slug_generator(instance, instance.title, instance.slug)
 
 
 pre_save.connect(slug_save, sender=Category)
-pre_save.connect(slug_save, sender=Voting)
+pre_save.connect(slug_save_multilang, sender=Voting)
