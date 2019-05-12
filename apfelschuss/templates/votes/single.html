@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+{% load humanize %}
+
+{% block title %}Apfelschuss – {{ voting.title }}{% endblock %}
+
 {% block content %}
 
   <h1>{{ voting.title }}</h1>
@@ -14,13 +19,11 @@
     <iframe class="embed-responsive-item" src="{{ voting.video_url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 
-  <p>{{ voting.overview }}</p>
-
-    <p>{{ voting.content | safe }}</p>
+  <p>{{ voting.description | safe }}</p>
 
   <p>{{ voting.author }}</p>
 
-  <p>{{ voting.timestamp|timesince }} ago</p>
+  <p>{% trans 'Last updated' %}: {{ voting.updated_at|naturaltime }}</p>
 
   {% if voting.previous_voting %}
   <a href="{{ voting.previous_voting.get_absolute_url }}">

@@ -42,11 +42,11 @@ class VotingTestCase(TestCase):
             )
         author = Author.objects.create(user=self.user)
         Voting.objects.create(
-            title="This is a voting title",
+            title_en="This is a voting title",
             author=author
             )
         Voting.objects.create(
-            title="This is a voting title",
+            title_en="This is a voting title",
             author=author
             )
 
@@ -54,5 +54,5 @@ class VotingTestCase(TestCase):
         object_1 = Voting.objects.get(pk=1)
         object_2 = Voting.objects.get(pk=2)
 
-        self.assertEqual(object_1.slug, 'this-is-a-voting-title')
-        self.assertEqual(object_2.slug, 'this-is-a-voting-title-2')
+        self.assertEqual(object_1.slug_en, 'this-is-a-voting-title')
+        self.assertEqual(object_2.slug_en, 'this-is-a-voting-title-2')
