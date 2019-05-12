@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+{% load humanize %}
+
+{% block title %}Apfelschuss – {% trans "Archived votes" %}{% endblock %}
+
 {% block content %}
 
   <div class="row">
@@ -7,8 +12,8 @@
     <div class="col-sm-4">
 
       <form action="{% url 'votes:votes_search' %}" class="form-inline">
-        <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input name="q" class="form-control mr-sm-2" type="search" placeholder="{% trans 'Search' %}" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{% trans 'Go' %}</button>
       </form>
 
       <ul class="list-group">
@@ -28,12 +33,12 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">{{ voting.title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{ voting.timestamp|timesince }} ago</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{% trans 'Last updated' %}: {{ voting.updated_at|naturaltime }}</h6>
             {% for cat in voting.categories.all %}
               <a href="#" class="badge badge-light">{{ cat.title }}</a>
             {% endfor %}
             <p class="card-text">{{ voting.overview }}</p>
-            <a href="{{ voting.get_absolute_url }}" class="card-link">Card link</a>
+            <a href="{{ voting.get_absolute_url }}" class="card-link">{% trans 'Details' %}</a>
           </div>
         </div>
       {% endfor %}
@@ -41,23 +46,23 @@
       <nav aria-label="Page navigation example">
         <ul class="pagination pagination-template d-flex justify-content-center">
           {% if queryset.has_previous %}
-            <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="page-link">Previous</a></li>
+            <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="page-link">{% trans 'Previous' %}</a></li>
           {% else %}
-            <li class="page-item disabled"><span class="page-link">Previous</span></li>
+            <li class="page-item disabled"><span class="page-link">{% trans 'Previous' %}</span></li>
           {% endif %}
 
           {% for i in queryset.paginator.page_range %}
             {% if queryset.number == i %}
-              <li class="page-item active"><a href="?{{ page_request_var }}={{ i }}" class="page-link">{{ i }} <span class="sr-only">(current)</span></a></li>
+              <li class="page-item active"><a href="?{{ page_request_var }}={{ i }}" class="page-link">{{ i }}</a></li>
             {% else %}
               <li class="page-item"><a class="page-link" href="?{{ page_request_var }}={{ i }}">{{ i }}</a></li>
             {% endif %}
           {% endfor %}
 
           {% if queryset.has_next %}
-            <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="page-link">Next</a></li>
+            <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="page-link">{% trans 'Next' %}</a></li>
           {% else %}
-            <li class="page-item disabled"><span class="page-link">Next</span></li>
+            <li class="page-item disabled"><span class="page-link">{% trans 'Next' %}</span></li>
           {% endif %}
         </ul>
       </nav>

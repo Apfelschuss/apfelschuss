@@ -60,7 +60,7 @@ DJANGO_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # "django.contrib.humanize", # Handy template tags
+    "django.contrib.humanize",  # Handy template tags
     "django.contrib.admin",
 ]
 THIRD_PARTY_APPS = [
@@ -278,11 +278,11 @@ LOCALE_PATHS = [
 ]
 
 LANGUAGES = [
-    ('en', _('English')),  # Default language always at first position
     ('de', _('German')),
     ('fr', _('French')),
     ('it', _('Italian')),
     ('rm', _('Raeto-Romance')),
+    ('en', _('English')),
 ]
 
 # Add custom language Romansh as long as not provided by Django
