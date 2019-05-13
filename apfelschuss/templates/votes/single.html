@@ -7,37 +7,47 @@
 
 {% block content %}
 
-  <h1>{{ voting.title }}</h1>
+<article class="voting">
+  <header class="voting-header">
+    {% for cat in voting.categories.all %}
+      <div class="voting-category">
+        <a href="#" class="badge badge-light">{{ cat.title }}</a>
+      </div>
+    {% endfor %}
 
-  {% for cat in voting.categories.all %}
-    <a href="#" class="badge badge-light">{{ cat.title }}</a>
-  {% endfor %}
+    <h1>{{ voting.title }}</h1>
+  </header>
 
-  <img src="{{ voting.thumbnail.url }}" class="img-fluid" alt="Thumbnail">
-
-  <div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="{{ voting.video_url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="voting-content">
+    {% if voting.thumbnail.url %}
+      <img src="{{ voting.thumbnail.url }}" class="img-fluid" alt="Thumbnail">
+    {% endif %}
+    {% if voting.video_url %}
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="{{ voting.video_url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    {% endif %}
+    {{ voting.description | safe }}
   </div>
 
-  <p>{{ voting.description | safe }}</p>
+  <footer class="voting-footer">
+    <p><small class="text-muted">{% trans 'Last updated' %}: {{ voting.updated_at|naturaltime }}</small></p>
+    {% if voting.previous_voting %}
+      <a href="{{ voting.previous_voting.get_absolute_url }}">
+          <div class="text">Previous Post
+            <h6>{{ voting.previous_voting.title }}</h6>
+          </div>
+      </a>
+    {% endif %}
+    {% if voting.next_voting %}
+      <a href="{{ voting.next_voting.get_absolute_url }}">
+          <div class="text">Next Post
+            <h6>{{ voting.next_voting.title }}</h6>
+          </div>
+      </a>
+    {% endif %}
+  </footer>
 
-  <p>{{ voting.author }}</p>
-
-  <p>{% trans 'Last updated' %}: {{ voting.updated_at|naturaltime }}</p>
-
-  {% if voting.previous_voting %}
-  <a href="{{ voting.previous_voting.get_absolute_url }}">
-      <div class="text">Previous Post
-        <h6>{{ voting.previous_voting.title }}</h6>
-      </div>
-  </a>
-  {% endif %}
-  {% if voting.next_voting %}
-  <a href="{{ voting.next_voting.get_absolute_url }}">
-      <div class="text">Next Post
-        <h6>{{ voting.next_voting.title }}</h6>
-      </div>
-  </a>
-  {% endif %}
+</article>
 
 {% endblock %}
