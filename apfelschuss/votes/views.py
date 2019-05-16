@@ -63,7 +63,7 @@ def archive(request):
     '''Returns all voting models paginated including category count.
     '''
     category_count = get_category_count()
-    voting_list = Voting.objects.all()
+    voting_list = Voting.objects.filter(published=True)
     paginator = Paginator(voting_list, 3)
     page_request_var = 'page'
     page = request.GET.get('page')

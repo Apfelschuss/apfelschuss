@@ -11,11 +11,6 @@
 
     <div class="col-sm-4">
 
-      <form action="{% url 'votes:votes_search' %}" class="form-inline">
-        <input name="q" class="form-control mr-sm-2" type="search" placeholder="{% trans 'Search' %}" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{% trans 'Go' %}</button>
-      </form>
-
       <ul class="list-group">
         {% for cat in category_count %}
           <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -25,6 +20,11 @@
         {% endfor %}
       </ul>
 
+      <form action="{% url 'votes:votes_search' %}" class="form-inline">
+        <input name="q" class="form-control mr-sm-2" type="search" placeholder="{% trans 'Search' %}" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{% trans 'Go' %}</button>
+      </form>
+
     </div>
 
     <div class="col-sm-8">
@@ -32,13 +32,20 @@
       {% for voting in queryset %}
         <div class="card">
           <div class="card-body">
+            <div class="voting-category">
+              {% for cat in voting.categories.all %}
+                <a href="#" class="badge badge-dark">{{ cat.title }}</a>
+              {% endfor %}
+            </div>
             <h5 class="card-title">{{ voting.title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{% trans 'Last updated' %}: {{ voting.updated_at|naturaltime }}</h6>
-            {% for cat in voting.categories.all %}
-              <a href="#" class="badge badge-light">{{ cat.title }}</a>
-            {% endfor %}
             <p class="card-text">{{ voting.overview }}</p>
-            <a href="{{ voting.get_absolute_url }}" class="card-link">{% trans 'Details' %}</a>
+            {% if voting.official_pro %}
+              <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width: {{ voting.official_pro }}%" aria-valuenow="{{ voting.official_pro }}" aria-valuemin="0" aria-valuemax="100">{{ voting.official_pro }}%</div>
+                <div class="progress-bar" role="progressbar" style="width: {{ voting.get_voting_contra }}%" aria-valuenow="{{ voting.get_voting_contra }}" aria-valuemin="0" aria-valuemax="100">{{ voting.get_voting_contra }}%</div>
+              </div>
+            {% endif %}
+            <a href="{{ voting.get_absolute_url }}" class="btn btn-outline-primary">{% trans 'Details' %}</a>
           </div>
         </div>
       {% endfor %}

@@ -150,7 +150,7 @@ class Voting(models.Model):
             "en": {"blank": True},
         }
     )
-    admin_pro = models.DecimalField(
+    official_pro = models.DecimalField(
         max_digits=4,
         decimal_places=1,
         verbose_name="Final result pro [%]",
@@ -172,6 +172,9 @@ class Voting(models.Model):
         return reverse('votes:votes_single', kwargs={
             'slug': self.slug
         })
+
+    def get_voting_contra(self):
+        return 100 - self.official_pro
 
 
 def slug_save_multilang(sender, instance, *args, **kwargs):

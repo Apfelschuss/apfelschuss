@@ -9,11 +9,11 @@
 
 <article class="voting">
   <header class="voting-header">
-    {% for cat in voting.categories.all %}
-      <div class="voting-category">
+    <div class="voting-category">
+      {% for cat in voting.categories.all %}
         <a href="#" class="badge badge-light">{{ cat.title }}</a>
-      </div>
-    {% endfor %}
+      {% endfor %}
+    </div>
 
     <h1>{{ voting.title }}</h1>
   </header>
@@ -28,24 +28,13 @@
       </div>
     {% endif %}
     {{ voting.description | safe }}
+    {% if voting.official_pro %}
+      <p><a href="{{ voting.admin_brochure.url }}" target="_blank">{% trans 'Download Brochure' %}</a></p>
+    {% endif %}
   </div>
 
   <footer class="voting-footer">
     <p><small class="text-muted">{% trans 'Last updated' %}: {{ voting.updated_at|naturaltime }}</small></p>
-    {% if voting.previous_voting %}
-      <a href="{{ voting.previous_voting.get_absolute_url }}">
-          <div class="text">Previous Post
-            <h6>{{ voting.previous_voting.title }}</h6>
-          </div>
-      </a>
-    {% endif %}
-    {% if voting.next_voting %}
-      <a href="{{ voting.next_voting.get_absolute_url }}">
-          <div class="text">Next Post
-            <h6>{{ voting.next_voting.title }}</h6>
-          </div>
-      </a>
-    {% endif %}
   </footer>
 
 </article>
