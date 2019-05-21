@@ -6,11 +6,12 @@ from apfelschuss.votes.models import Category, Voting
 
 
 def category_latest(request):
-    '''Returns latest category that is published=True and its votes.
+    '''Returns latest category that is published and its votes
+    that are published.
     '''
     try:
         category_latest = Category.objects.filter(published=True).latest('voting_date')
-        votes = category_latest.voting_set.all()
+        votes = category_latest.voting_set.filter(published=True)
     except Category.DoesNotExist:
         category_latest = None
         votes = None
@@ -63,7 +64,7 @@ def archive(request):
     '''Returns all published voting models paginated including category count.
     '''
     category_count = get_category_count()
-    voting_list = Voting.objects.filter().filter(published=True)
+    voting_list = Voting.objects.filter(published=True)
     paginator = Paginator(voting_list, 3)
     page_request_var = 'page'
     page = request.GET.get('page')

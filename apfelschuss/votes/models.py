@@ -55,10 +55,6 @@ class Category(models.Model):
     published = models.BooleanField(
         default=False
     )
-    featured = models.BooleanField(
-        default=False,
-        verbose_name="Featured category"
-    )
 
     def __str__(self):
         return self.title
