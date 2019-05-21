@@ -41,8 +41,8 @@
             <p class="card-text">{{ voting.overview }}</p>
             {% if voting.official_pro %}
               <div class="progress">
-                <div class="progress-bar bg-success" role="progressbar" style="width: {{ voting.official_pro }}%" aria-valuenow="{{ voting.official_pro }}" aria-valuemin="0" aria-valuemax="100">{{ voting.official_pro }}%</div>
-                <div class="progress-bar" role="progressbar" style="width: {{ voting.get_voting_contra }}%" aria-valuenow="{{ voting.get_voting_contra }}" aria-valuemin="0" aria-valuemax="100">{{ voting.get_voting_contra }}%</div>
+                <div class="progress-bar bg-success" role="progressbar" style="width: {{ voting.official_pro }}%" aria-valuenow="{{ voting.official_pro }}" aria-valuemin="0" aria-valuemax="100">{% trans 'Yes' %} {{ voting.official_pro }}%</div>
+                <div class="progress-bar" role="progressbar" style="width: {{ voting.get_voting_contra }}%" aria-valuenow="{{ voting.get_voting_contra }}" aria-valuemin="0" aria-valuemax="100">{% trans 'No' %} {{ voting.get_voting_contra }}%</div>
               </div>
             {% endif %}
             <a href="{{ voting.get_absolute_url }}" class="btn btn-outline-primary">{% trans 'Details' %}</a>

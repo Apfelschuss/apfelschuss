@@ -60,10 +60,10 @@ def featured(request):
 
 
 def archive(request):
-    '''Returns all voting models paginated including category count.
+    '''Returns all published voting models paginated including category count.
     '''
     category_count = get_category_count()
-    voting_list = Voting.objects.filter(published=True)
+    voting_list = Voting.objects.filter().filter(published=True)
     paginator = Paginator(voting_list, 3)
     page_request_var = 'page'
     page = request.GET.get('page')
