@@ -1,28 +1,31 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+{% load humanize %}
+
+{% block title %}Apfelschuss – {% trans "Featured votes" %}{% endblock %}
+
 {% block content %}
 
-{% for obj in object_list %}
-
-  <h1>{{ obj.title }}</h1>
-
-  {% for cat in obj.categories.all %}
-    <a href="#" class="badge badge-light">{{ cat.title }}</a>
+  {% for voting in queryset %}
+    <div class="card">
+      <div class="card-body">
+        <div class="voting-category">
+          {% for cat in voting.categories.all %}
+            <a href="#" class="badge badge-dark">{{ cat.title }}</a>
+          {% endfor %}
+        </div>
+        <h5 class="card-title">{{ voting.title }}</h5>
+        <p class="card-text">{{ voting.overview }}</p>
+        {% if voting.official_pro %}
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: {{ voting.official_pro }}%" aria-valuenow="{{ voting.official_pro }}" aria-valuemin="0" aria-valuemax="100">{% trans 'Yes' %} {{ voting.official_pro }}%</div>
+            <div class="progress-bar" role="progressbar" style="width: {{ voting.get_voting_contra }}%" aria-valuenow="{{ voting.get_voting_contra }}" aria-valuemin="0" aria-valuemax="100">{% trans 'No' %} {{ voting.get_voting_contra }}%</div>
+          </div>
+        {% endif %}
+        <a href="{{ voting.get_absolute_url }}" class="btn btn-outline-primary">{% trans 'Details' %}</a>
+      </div>
+    </div>
   {% endfor %}
-
-  <img src="{{ obj.thumbnail.url }}" class="img-fluid" alt="Thumbnail">
-
-  <div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="{{ obj.video_url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-
-  <p>{{ obj.overview }}</p>
-
-  <p>{{ obj.author }}</p>
-
-  <p>{{ obj.timestamp|timesince }} ago</p>
-
-
-{% endfor %}
 
 {% endblock %}

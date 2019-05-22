@@ -55,7 +55,7 @@ def featured(request):
     '''
     featured = Voting.objects.filter(featured=True)
     context = {
-        'object_list': featured
+        'queryset': featured
     }
     return render(request, 'votes/featured.html', context)
 
