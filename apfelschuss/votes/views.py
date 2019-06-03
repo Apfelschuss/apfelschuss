@@ -26,7 +26,7 @@ def search(request):
     '''Search query in voting title and description and returns
     voting objects.
     '''
-    queryset = Voting.objects.all()
+    queryset = Voting.objects.filter(status=1)
     query = request.GET.get('q')
     if query:
         queryset = queryset.filter(
