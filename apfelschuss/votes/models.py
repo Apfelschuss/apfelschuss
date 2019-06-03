@@ -11,6 +11,10 @@ from apfelschuss.votes.utils import unique_slug_generator
 
 User = get_user_model()
 
+STATUS = (
+    (0,"Draft"),
+    (1,"Publish")
+)
 
 class Author(models.Model):
     user = models.OneToOneField(
@@ -52,8 +56,9 @@ class Category(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True
     )
-    published = models.BooleanField(
-        default=False
+    status = models.IntegerField(
+        choices=STATUS,
+        default=0
     )
 
     def __str__(self):
@@ -93,9 +98,9 @@ class Voting(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True
     )
-    published = models.BooleanField(
-        default=False,
-        verbose_name="Voting published"
+    status = models.IntegerField(
+        choices=STATUS,
+        default=0
     )
     description = TranslatedField(
         HTMLField(

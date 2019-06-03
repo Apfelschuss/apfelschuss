@@ -10,8 +10,8 @@ def category_latest(request):
     that are published.
     '''
     try:
-        category_latest = Category.objects.filter(published=True).latest('voting_date')
-        votes = category_latest.voting_set.filter(published=True)
+        category_latest = Category.objects.filter(status=1).latest('voting_date')
+        votes = category_latest.voting_set.filter(status=1)
     except Category.DoesNotExist:
         category_latest = None
         votes = None
@@ -53,7 +53,7 @@ def get_category_count():
 def featured(request):
     '''Retunrs all voting models with featured=True.
     '''
-    featured = Voting.objects.filter(featured=True)
+    featured = Voting.objects.filter(status=1).filter(featured=True)
     context = {
         'queryset': featured
     }
@@ -64,7 +64,7 @@ def archive(request):
     '''Returns all published voting models paginated including category count.
     '''
     category_count = get_category_count()
-    voting_list = Voting.objects.filter(published=True)
+    voting_list = Voting.objects.filter(status=1)
     paginator = Paginator(voting_list, 3)
     page_request_var = 'page'
     page = request.GET.get('page')
@@ -87,15 +87,15 @@ def voting(request, slug):
     corresponding language.
     '''
     if request.LANGUAGE_CODE == 'de':
-        voting = get_object_or_404(Voting, slug_de=slug)
+        voting = get_object_or_404(Voting, status=1, slug_de=slug)
     elif request.LANGUAGE_CODE == 'fr':
-        voting = get_object_or_404(Voting, slug_fr=slug)
+        voting = get_object_or_404(Voting, status=1, slug_fr=slug)
     elif request.LANGUAGE_CODE == 'it':
-        voting = get_object_or_404(Voting, slug_it=slug)
+        voting = get_object_or_404(Voting, status=1, slug_it=slug)
     elif request.LANGUAGE_CODE == 'rm':
-        voting = get_object_or_404(Voting, slug_rm=slug)
+        voting = get_object_or_404(Voting, status=1, slug_rm=slug)
     elif request.LANGUAGE_CODE == 'en':
-        voting = get_object_or_404(Voting, slug_en=slug)
+        voting = get_object_or_404(Voting, status=1, slug_en=slug)
     context = {
         'voting': voting
     }
