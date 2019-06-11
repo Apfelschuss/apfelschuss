@@ -11,12 +11,12 @@
     <h1>{{ category_latest.title }}</h1>
 
     {% for voting in votes %}
-      <div class="card">
+      <div class="card mb-3">
         <div class="card-body">
           <h5 class="card-title">{{ voting.title }}</h5>
           <p class="card-text">{{ voting.overview }}</p>
           {% if voting.official_pro %}
-            <div class="progress">
+            <div class="progress mb-3">
               <div class="progress-bar bg-success" role="progressbar" style="width: {{ voting.official_pro }}%" aria-valuenow="{{ voting.official_pro }}" aria-valuemin="0" aria-valuemax="100">{% trans 'Yes' %} {{ voting.official_pro }}%</div>
               <div class="progress-bar" role="progressbar" style="width: {{ voting.get_voting_contra }}%" aria-valuenow="{{ voting.get_voting_contra }}" aria-valuemin="0" aria-valuemax="100">{% trans 'No' %} {{ voting.get_voting_contra }}%</div>
             </div>
