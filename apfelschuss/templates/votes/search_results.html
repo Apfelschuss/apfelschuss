@@ -1,11 +1,33 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+{% load humanize %}
+
+{% block title %}Apfelschuss – {% trans "Search results" %}{% endblock %}
+
 {% block content %}
 
 <h1>Search results</h1>
 
-{% for voting in votes %}
-  <h6><a href="{{ voting.get_absolute_url }}">{{ voting.title }}</a></h6>
-{% endfor %}
+  {% for voting in votes %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="voting-category mb-1">
+          {% for cat in voting.categories.all %}
+            <a href="#" class="badge badge-dark">{{ cat.title }}</a>
+          {% endfor %}
+        </div>
+        <h5 class="card-title">{{ voting.title }}</h5>
+        <p class="card-text">{{ voting.overview }}</p>
+        {% if voting.official_pro %}
+          <div class="progress mb-3">
+            <div class="progress-bar bg-success" role="progressbar" style="width: {{ voting.official_pro }}%" aria-valuenow="{{ voting.official_pro }}" aria-valuemin="0" aria-valuemax="100">{% trans 'Yes' %} {{ voting.official_pro }}%</div>
+            <div class="progress-bar" role="progressbar" style="width: {{ voting.get_voting_contra }}%" aria-valuenow="{{ voting.get_voting_contra }}" aria-valuemin="0" aria-valuemax="100">{% trans 'No' %} {{ voting.get_voting_contra }}%</div>
+          </div>
+        {% endif %}
+        <a href="{{ voting.get_absolute_url }}" class="btn btn-outline-primary">{% trans 'Details' %}</a>
+      </div>
+    </div>
+  {% endfor %}
 
 {% endblock %}
