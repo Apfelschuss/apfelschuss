@@ -11,7 +11,7 @@
 
     <div class="col-sm-4">
 
-      <ul class="list-group">
+      <ul class="list-group mb-3">
         {% for cat in category_count %}
           <li class="list-group-item d-flex justify-content-between align-items-center">
             {{ cat.categories__title }}
@@ -29,7 +29,7 @@
 
     <div class="col-sm-8">
 
-      {% for voting in queryset %}
+      {% for voting in votes %}
         <div class="card mb-3">
           <div class="card-body">
             <div class="voting-category mb-1">

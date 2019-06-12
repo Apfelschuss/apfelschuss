@@ -4,7 +4,7 @@
 
 <h1>Search results</h1>
 
-{% for voting in queryset %}
+{% for voting in votes %}
   <h6><a href="{{ voting.get_absolute_url }}">{{ voting.title }}</a></h6>
 {% endfor %}
 

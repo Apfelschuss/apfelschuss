@@ -29,12 +29,33 @@ def search(request):
     queryset = Voting.objects.filter(status=1)
     query = request.GET.get('q')
     if query:
-        queryset = queryset.filter(
-            Q(title__icontains=query) |
-            Q(description__icontains=query)
-        ).distinct()
+        if request.LANGUAGE_CODE == 'de':
+            queryset = queryset.filter(
+                Q(title_de__icontains=query) |
+                Q(description_de__icontains=query)
+            ).distinct()
+        elif request.LANGUAGE_CODE == 'fr':
+            queryset = queryset.filter(
+                Q(title_fr__icontains=query) |
+                Q(description_fr__icontains=query)
+            ).distinct()
+        elif request.LANGUAGE_CODE == 'it':
+            queryset = queryset.filter(
+                Q(title_it__icontains=query) |
+                Q(description_it__icontains=query)
+            ).distinct()
+        elif request.LANGUAGE_CODE == 'rm':
+            queryset = queryset.filter(
+                Q(title_rm__icontains=query) |
+                Q(description_rm__icontains=query)
+            ).distinct()
+        elif request.LANGUAGE_CODE == 'en':
+            queryset = queryset.filter(
+                Q(title_en__icontains=query) |
+                Q(description_en__icontains=query)
+            ).distinct()
     context = {
-        'queryset': queryset
+        'votes': queryset
     }
     return render(request, 'votes/search_results.html', context)
 
@@ -55,7 +76,7 @@ def featured(request):
     '''
     featured = Voting.objects.filter(status=1).filter(featured=True)
     context = {
-        'queryset': featured
+        'votes': featured
     }
     return render(request, 'votes/featured.html', context)
 
@@ -75,7 +96,7 @@ def archive(request):
     except EmptyPage:
         paginated_queryset = paginator.page(paginator.num_pages)
     context = {
-        'queryset': paginated_queryset,
+        'votes': paginated_queryset,
         'page_request_var': page_request_var,
         'category_count': category_count,
     }
