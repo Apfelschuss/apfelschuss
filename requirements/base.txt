@@ -20,4 +20,4 @@ coreapi==2.3.3  # https://github.com/core-api/python-client
 # Additional stuff
 django-tinymce4-lite==1.7.5 # https://github.com/romanvm/django-tinymce4-lite
 django-filebrowser-no-grappelli==3.7.8 # https://github.com/smacker/django-filebrowser-no-grappelli
-django-translated-fields==0.7.3 # https://github.com/matthiask/django-translated-fields
+django-translated-fields==0.8.0 # https://github.com/matthiask/django-translated-fields
