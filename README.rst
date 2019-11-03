@@ -113,7 +113,7 @@ Seeding the database with 30 new users::
 
     $ docker-compose -f local.yml run --rm django python manage.py shell
     >>> import seeder
-    >>> seeder.seedusers(30)
+    >>> seeder.seed_users(30)
 
 
 Internationalization and Localization
