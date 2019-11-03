@@ -6,6 +6,7 @@ fake = Faker()
 
 from django.contrib.auth import get_user_model
 # from polls.models import Choice, Poll, Vote
+
 User = get_user_model()
 
 def seed_users(num_entries=10, overwrite=False):
