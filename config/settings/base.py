@@ -73,7 +73,7 @@ THIRD_PARTY_APPS = [
     "filebrowser",
 ]
 LOCAL_APPS = [
-    "apfelschuss.users.apps.UsersAppConfig",
+    "apfelschuss.users.apps.UsersConfig",
     # Your stuff: custom apps go here
     "apfelschuss.votes.apps.VotesConfig",
 ]
@@ -183,6 +183,7 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
+                "apfelschuss.utils.context_processors.settings_context",
             ],
         },
     }
