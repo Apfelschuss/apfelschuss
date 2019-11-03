@@ -109,6 +109,12 @@ Running type checks with mypy::
 
     $ docker-compose -f local.yml run --rm django mypy apfelschuss
 
+Seeding the database with 30 new users::
+
+    $ docker-compose -f local.yml run --rm django python manage.py shell
+    >>> import seeder
+    >>> seeder.seedusers(30)
+
 
 Internationalization and Localization
 -------------------------------------
