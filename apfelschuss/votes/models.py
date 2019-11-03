@@ -12,9 +12,10 @@ from apfelschuss.votes.utils import unique_slug_generator
 User = get_user_model()
 
 STATUS = (
-    (0,"Draft"),
-    (1,"Publish")
+    (0, "Draft"),
+    (1, "Publish")
 )
+
 
 class Author(models.Model):
     user = models.OneToOneField(
