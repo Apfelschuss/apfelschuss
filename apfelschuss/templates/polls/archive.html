@@ -3,7 +3,7 @@
 {% load i18n %}
 {% load humanize %}
 
-{% block title %}Apfelschuss – {% trans "Archived votes" %}{% endblock %}
+{% block title %}Apfelschuss – {% trans "Archived polls" %}{% endblock %}
 
 {% block content %}
 
@@ -20,7 +20,7 @@
         {% endfor %}
       </ul>
 
-      <form action="{% url 'votes:votes_search' %}" class="form-inline">
+      <form action="{% url 'polls:polls_search' %}" class="form-inline">
         <input name="q" class="form-control mr-sm-2" type="search" placeholder="{% trans 'Search' %}" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{% trans 'Go' %}</button>
       </form>
@@ -29,23 +29,23 @@
 
     <div class="col-sm-8">
 
-      {% for voting in votes %}
+      {% for poll in polls %}
         <div class="card mb-3">
           <div class="card-body">
-            <div class="voting-category mb-1">
-              {% for cat in voting.categories.all %}
+            <div class="poll-category mb-1">
+              {% for cat in poll.categories.all %}
                 <a href="#" class="badge badge-dark">{{ cat.title }}</a>
               {% endfor %}
             </div>
-            <h5 class="card-title">{{ voting.title }}</h5>
-            <p class="card-text">{{ voting.overview }}</p>
-            {% if voting.official_pro %}
+            <h5 class="card-title">{{ poll.title }}</h5>
+            <p class="card-text">{{ poll.overview }}</p>
+            {% if poll.official_pro %}
               <div class="progress mb-3">
-                <div class="progress-bar bg-success" role="progressbar" style="width: {{ voting.official_pro }}%" aria-valuenow="{{ voting.official_pro }}" aria-valuemin="0" aria-valuemax="100">{% trans 'Yes' %} {{ voting.official_pro }}%</div>
-                <div class="progress-bar" role="progressbar" style="width: {{ voting.get_voting_contra }}%" aria-valuenow="{{ voting.get_voting_contra }}" aria-valuemin="0" aria-valuemax="100">{% trans 'No' %} {{ voting.get_voting_contra }}%</div>
+                <div class="progress-bar bg-success" role="progressbar" style="width: {{ poll.official_pro }}%" aria-valuenow="{{ poll.official_pro }}" aria-valuemin="0" aria-valuemax="100">{% trans 'Yes' %} {{ poll.official_pro }}%</div>
+                <div class="progress-bar" role="progressbar" style="width: {{ poll.get_poll_contra }}%" aria-valuenow="{{ poll.get_poll_contra }}" aria-valuemin="0" aria-valuemax="100">{% trans 'No' %} {{ poll.get_poll_contra }}%</div>
               </div>
             {% endif %}
-            <a href="{{ voting.get_absolute_url }}" class="btn btn-outline-primary">{% trans 'Details' %}</a>
+            <a href="{{ poll.get_absolute_url }}" class="btn btn-outline-primary">{% trans 'Details' %}</a>
           </div>
         </div>
       {% endfor %}

@@ -22,7 +22,7 @@ urlpatterns += i18n_patterns(
     path("accounts/", include("allauth.urls")),
     path("terms-of-use/", TemplateView.as_view(template_name="pages/terms_of_use.html"), name="terms_of_use"),
     path("legal-notice/", TemplateView.as_view(template_name="pages/legal_notice.html"), name="legal_notice"),
-    path("", include("apfelschuss.votes.urls", namespace="votes")),
+    path("", include("apfelschuss.polls.urls", namespace="polls")),
     # No en/ prefix
     prefix_default_language=False,
 )

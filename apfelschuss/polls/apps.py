@@ -2,4 +2,6 @@ from django.apps import AppConfig
 
 
 class PollsConfig(AppConfig):
-    name = 'polls'
+
+    name = "apfelschuss.polls"
+    verbose_name = "polls"
