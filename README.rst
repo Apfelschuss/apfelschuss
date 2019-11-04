@@ -1,5 +1,5 @@
-Apfelschuss
-===========
+Apfelschuss web application (apfelschuss.io)
+============================================
 
 .. image:: https://travis-ci.org/Apfelschuss/apfelschuss.svg?branch=master
     :target: https://travis-ci.org/Apfelschuss/apfelschuss
