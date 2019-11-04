@@ -75,6 +75,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "apfelschuss.users.apps.UsersConfig",
     # Your stuff: custom apps go here
+    "apfelschuss.polls.apps.PollsConfig",   
     "apfelschuss.votes.apps.VotesConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
