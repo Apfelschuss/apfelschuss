@@ -19,5 +19,5 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Poll)
 class PollAdmin(TranslatedFieldAdmin, admin.ModelAdmin):
-    list_display = ['title', 'created_at', 'updated_at', 'featured', 'status', 'id']
+    list_display = ['title', 'created_at', 'updated_at', 'category', 'featured', 'status', 'id']
     readonly_fields = ('created_at', 'updated_at', )

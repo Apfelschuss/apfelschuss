@@ -10,8 +10,8 @@ def category_latest(request):
     that are published.
     '''
     try:
-        category_latest = Category.objects.filter(status=1).latest('poll_date')
-        polls = category_latest.poll_set.filter(status=1)
+        category_latest = Category.objects.filter(status='published').latest('poll_date')
+        polls = category_latest.poll_set.filter(status='published')
     except Category.DoesNotExist:
         category_latest = None
         polls = None
@@ -74,7 +74,7 @@ def get_category_count():
 def featured(request):
     '''Retunrs all polls models with featured=True.
     '''
-    featured = Poll.objects.filter(status=1).filter(featured=True)
+    featured = Poll.objects.filter(status='published').filter(featured=True)
     context = {
         'polls': featured
     }
@@ -85,7 +85,7 @@ def archive(request):
     '''Returns all published poll models paginated including category count.
     '''
     category_count = get_category_count()
-    poll_list = Poll.objects.filter(status=1)
+    poll_list = Poll.objects.filter(status='published')
     paginator = Paginator(poll_list, 3)
     page_request_var = 'page'
     page = request.GET.get('page')

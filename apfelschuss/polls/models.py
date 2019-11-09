@@ -31,7 +31,7 @@ class Author(models.Model):
 
 
 class Category(models.Model):
-    STATUS = Choices('Draft', 'Published')
+    STATUS = Choices('draft', 'published')
     status = StatusField()
     title = models.CharField(
         max_length=80,
@@ -62,7 +62,7 @@ class Category(models.Model):
 
 
 class Poll(models.Model):
-    STATUS = Choices('Draft', 'Published')
+    STATUS = Choices('draft', 'published')
     status = StatusField()
     title = TranslatedField(
         models.CharField(
@@ -151,8 +151,9 @@ class Poll(models.Model):
         verbose_name="Final result pro [%]",
         blank=True, null=True
     )
-    categories = models.ManyToManyField(
+    category = models.ForeignKey(
         Category,
+        on_delete=models.CASCADE,
         verbose_name="Poll category",
     )
     featured = models.BooleanField(
