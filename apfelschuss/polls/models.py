@@ -4,17 +4,14 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse
 
 from filebrowser.fields import FileBrowseField
+from model_utils.fields import StatusField
+from model_utils import Choices
 from tinymce import HTMLField
 from translated_fields import TranslatedField
 
 from apfelschuss.polls.utils import unique_slug_generator
 
 User = get_user_model()
-
-STATUS = (
-    (0, "Draft"),
-    (1, "Publish")
-)
 
 
 class Author(models.Model):
@@ -34,6 +31,8 @@ class Author(models.Model):
 
 
 class Category(models.Model):
+    STATUS = Choices('Draft', 'Published')
+    status = StatusField()
     title = models.CharField(
         max_length=80,
         verbose_name="Poll category title"
@@ -57,16 +56,14 @@ class Category(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True
     )
-    status = models.IntegerField(
-        choices=STATUS,
-        default=0
-    )
 
     def __str__(self):
         return self.title
 
 
 class Poll(models.Model):
+    STATUS = Choices('Draft', 'Published')
+    status = StatusField()
     title = TranslatedField(
         models.CharField(
             verbose_name="Poll title",
@@ -98,10 +95,6 @@ class Poll(models.Model):
     )
     updated_at = models.DateTimeField(
         auto_now=True
-    )
-    status = models.IntegerField(
-        choices=STATUS,
-        default=0
     )
     description = TranslatedField(
         HTMLField(
