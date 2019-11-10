@@ -41,13 +41,20 @@ class PollTestCase(TestCase):
             password='top_secret'
             )
         author = Author.objects.create(user=self.user)
-        Poll.objects.create(
-            title_en="This is a poll title",
+        category = Category.objects.create(
+            title="This is a category title",
+            poll_date="2019-04-19T21:19:16.917697+00:00",
             author=author
             )
         Poll.objects.create(
             title_en="This is a poll title",
-            author=author
+            author=author,
+            category=category
+            )
+        Poll.objects.create(
+            title_en="This is a poll title",
+            author=author,
+            category=category
             )
 
     def test_check_slugs(self):

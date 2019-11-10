@@ -3,10 +3,10 @@ import random
 import time
 from faker import Faker
 from django.contrib.auth import get_user_model
-from polls.models import Author, Category, Poll
 
 fake = Faker()
 User = get_user_model()
+
 
 def seed_users(num_entries=10, overwrite=False):
     """
@@ -20,11 +20,11 @@ def seed_users(num_entries=10, overwrite=False):
         first_name = fake.first_name()
         last_name = fake.last_name()
         u = User.objects.create_user(
-            name = first_name + ' ' + last_name,
-            first_name = first_name,
-            last_name = last_name,
-            email = first_name + "." + last_name + "@fakermail.com",
-            username = first_name + last_name,
+            name=first_name + ' ' + last_name,
+            first_name=first_name,
+            last_name=last_name,
+            email=first_name + "." + last_name + "@fakermail.com",
+            username=first_name + last_name,
             password="password"
         )
         count += 1
@@ -52,4 +52,3 @@ def seed_all(num_entries=10, overwrite=False):
     minutes = int(elapsed_time // 60)
     seconds = int(elapsed_time % 60)
     print("Script Execution took: {} minutes {} seconds".format(minutes, seconds))
-    
