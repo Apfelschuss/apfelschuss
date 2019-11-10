@@ -13,9 +13,7 @@
     <div class="card mb-3">
       <div class="card-body">
         <div class="poll-category mb-1">
-          {% for cat in poll.categories.all %}
-            <a href="#" class="badge badge-dark">{{ cat.title }}</a>
-          {% endfor %}
+          <a href="#" class="badge badge-dark">{{ poll.category.title }}</a>
         </div>
         <h5 class="card-title">{{ poll.title }}</h5>
         <p class="card-text">{{ poll.overview }}</p>

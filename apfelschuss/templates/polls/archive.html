@@ -14,8 +14,8 @@
       <ul class="list-group mb-3">
         {% for cat in category_count %}
           <li class="list-group-item d-flex justify-content-between align-items-center">
-            {{ cat.categories__title }}
-            <span class="badge badge-primary badge-pill">{{ cat.categories__title__count }}</span>
+            {{ cat.category__title }}
+            <span class="badge badge-primary badge-pill">{{ cat.category__title__count }}</span>
           </li>
         {% endfor %}
       </ul>

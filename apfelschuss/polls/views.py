@@ -26,7 +26,7 @@ def search(request):
     '''Search query in poll title and description and returns
     poll objects.
     '''
-    queryset = Poll.objects.filter(status=1)
+    queryset = Poll.objects.filter(status='published')
     query = request.GET.get('q')
     if query:
         if request.LANGUAGE_CODE == 'de':
@@ -66,8 +66,8 @@ def get_category_count():
     '''
     queryset = Poll \
         .objects \
-        .values('categories__title') \
-        .annotate(Count('categories__title'))
+        .values('category__title') \
+        .annotate(Count('category__title'))
     return queryset
 
 
@@ -108,15 +108,15 @@ def poll(request, slug):
     corresponding language.
     '''
     if request.LANGUAGE_CODE == 'de':
-        poll = get_object_or_404(Poll, status=1, slug_de=slug)
+        poll = get_object_or_404(Poll, status='published', slug_de=slug)
     elif request.LANGUAGE_CODE == 'fr':
-        poll = get_object_or_404(Poll, status=1, slug_fr=slug)
+        poll = get_object_or_404(Poll, status='published', slug_fr=slug)
     elif request.LANGUAGE_CODE == 'it':
-        poll = get_object_or_404(Poll, status=1, slug_it=slug)
+        poll = get_object_or_404(Poll, status='published', slug_it=slug)
     elif request.LANGUAGE_CODE == 'rm':
-        poll = get_object_or_404(Poll, status=1, slug_rm=slug)
+        poll = get_object_or_404(Poll, status='published', slug_rm=slug)
     elif request.LANGUAGE_CODE == 'en':
-        poll = get_object_or_404(Poll, status=1, slug_en=slug)
+        poll = get_object_or_404(Poll, status='published', slug_en=slug)
     context = {
         'poll': poll
     }
