@@ -14,22 +14,6 @@ from apfelschuss.polls.utils import unique_slug_generator
 User = get_user_model()
 
 
-class Author(models.Model):
-    user = models.OneToOneField(
-        User,
-        on_delete=models.CASCADE,
-    )
-    created_at = models.DateTimeField(
-        auto_now_add=True
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True
-    )
-
-    def __str__(self):
-        return self.user.username
-
-
 class Category(models.Model):
     STATUS = Choices('draft', 'published')
     status = StatusField()
@@ -46,9 +30,11 @@ class Category(models.Model):
     poll_date = models.DateTimeField(
         verbose_name="Poll final date"
     )
-    author = models.ForeignKey(
-        Author,
+    owner = models.ForeignKey(
+        User,
         on_delete=models.CASCADE,
+        default=1,
+        verbose_name="Category owner"    
     )
     created_at = models.DateTimeField(
         auto_now_add=True
@@ -108,9 +94,11 @@ class Poll(models.Model):
             "en": {"blank": True},
         }
     )
-    author = models.ForeignKey(
-        Author,
+    owner = models.ForeignKey(
+        User,
         on_delete=models.CASCADE,
+        default=1,
+        verbose_name="Poll owner"    
     )
     thumbnail = FileBrowseField(
         "Thumbnail",

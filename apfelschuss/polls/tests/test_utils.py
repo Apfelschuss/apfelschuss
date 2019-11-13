@@ -1,28 +1,27 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 
-from apfelschuss.polls.models import Author, Category, Poll
+from apfelschuss.polls.models import Category, Poll
 
 User = get_user_model()
 
 
 class CategoryTestCase(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(
+        owner = User.objects.create_user(
             username='test',
             email='test@test.ch',
             password='top_secret'
             )
-        author = Author.objects.create(user=self.user)
         Category.objects.create(
             title="This is a category title",
             poll_date="2019-04-19T21:19:16.917697+00:00",
-            author=author
+            owner=owner
             )
         Category.objects.create(
             title="This is a category title",
             poll_date="2019-04-19T21:19:16.917697+00:00",
-            author=author
+            owner=owner
             )
 
     def test_check_slugs(self):
@@ -35,25 +34,24 @@ class CategoryTestCase(TestCase):
 
 class PollTestCase(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(
+        owner = User.objects.create_user(
             username='test',
             email='test@test.ch',
             password='top_secret'
             )
-        author = Author.objects.create(user=self.user)
         category = Category.objects.create(
             title="This is a category title",
             poll_date="2019-04-19T21:19:16.917697+00:00",
-            author=author
+            owner=owner
             )
         Poll.objects.create(
             title_en="This is a poll title",
-            author=author,
+            owner=owner,
             category=category
             )
         Poll.objects.create(
             title_en="This is a poll title",
-            author=author,
+            owner=owner,
             category=category
             )
 

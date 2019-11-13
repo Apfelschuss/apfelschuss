@@ -2,13 +2,7 @@ from django.contrib import admin
 
 from translated_fields import TranslatedFieldAdmin
 
-from .models import Author, Category, Poll
-
-
-@admin.register(Author)
-class AuthorAdmin(admin.ModelAdmin):
-    list_display = ['user', 'created_at', 'updated_at', 'id']
-    readonly_fields = ('created_at', 'updated_at', )
+from .models import Category, Poll
 
 
 @admin.register(Category)
