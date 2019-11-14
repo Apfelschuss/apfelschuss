@@ -112,6 +112,7 @@ Running type checks with mypy::
 Seeding the database with dummy content::
 
     $ docker-compose -f local.yml run --rm django python manage.py shell
+    
     In [1]: import seeder
     In [2]: seeder.seed_all(5)
 
