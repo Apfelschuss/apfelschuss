@@ -50,9 +50,13 @@ def seed_categories(num_entries=10, choice_min=2, choice_max=5, overwrite=False)
     users = list(User.objects.all())
     count = 0
     for _ in range(num_entries):
+        if count % 5 == 0:
+            status = 'draft'
+        else:
+            status = 'published'  
         c = Category( 
             title = fake.sentence(),
-            status = 'published',
+            status = status,
             poll_date = timezone.now(),
             owner = random.choice(users),
         )
