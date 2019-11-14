@@ -85,7 +85,11 @@ def seed_polls(num_entries=10, choice_min=2, choice_max=5, overwrite=False):
         if count % 6 == 0:
             status = 'draft'
         else:
-            status = 'published'  
+            status = 'published'
+        if count % 10 == 0:
+            featured = True
+        else:
+            featured = False    
         p = Poll( 
             status = status,
             title_de = fake.sentence(),
@@ -98,13 +102,14 @@ def seed_polls(num_entries=10, choice_min=2, choice_max=5, overwrite=False):
             description_it = fake.paragraph(),
             description_rm = fake.paragraph(),
             description_en = fake.paragraph(),
+            owner = random.choice(users),
             video_url_de = 'https://www.youtube.com/embed/yltRgOFYD-w',
             video_url_fr = 'https://www.youtube.com/embed/yltRgOFYD-w',
             video_url_it = 'https://www.youtube.com/embed/yltRgOFYD-w',
             video_url_rm = 'https://www.youtube.com/embed/yltRgOFYD-w',
             video_url_en = 'https://www.youtube.com/embed/yltRgOFYD-w',
-            owner = random.choice(users),
             category = random.choice(category),
+            featured = featured
         )
         p.save()
         count += 1
