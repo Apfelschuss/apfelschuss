@@ -1,13 +1,11 @@
-import datetime
 import random
 import time
 from django.contrib.auth import get_user_model
+from django.utils import timezone
 
 from faker import Faker
-from model_utils.fields import StatusField
-from model_utils import Choices
 
-from polls.models import Category, Poll
+from apfelschuss.polls.models import Category, Poll
 
 fake = Faker()
 User = get_user_model()
@@ -52,12 +50,11 @@ def seed_categories(num_entries=10, choice_min=2, choice_max=5, overwrite=False)
     users = list(User.objects.all())
     count = 0
     for _ in range(num_entries):
-        c = Category(
-            created_at = datetime.datetime.now(),
-            updated_at = created_at,   
+        c = Category( 
             title = fake.sentence(),
-            poll_date = datetime.datetime.now(),
-            owner = random.choice(users),        
+            status = 'published',
+            poll_date = timezone.now(),
+            owner = random.choice(users),
         )
         c.save()
         count += 1
