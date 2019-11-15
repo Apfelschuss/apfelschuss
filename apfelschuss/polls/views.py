@@ -86,7 +86,7 @@ def archive(request):
     '''
     category_count = get_category_count()
     poll_list = Poll.objects.filter(status='published')
-    paginator = Paginator(poll_list, 3)
+    paginator = Paginator(poll_list, 20)
     page_request_var = 'page'
     page = request.GET.get('page')
     try:
