@@ -6,7 +6,8 @@ from apfelschuss.polls.models import Category, Poll
 
 
 def category_latest(request):
-    '''Returns latest category that is published and its polls
+    '''
+    Returns latest category that is published and its polls
     that are published.
     '''
     try:
@@ -23,7 +24,8 @@ def category_latest(request):
 
 
 def search(request):
-    '''Search query in poll title and description and returns
+    '''
+    Search query in poll title and description and returns
     poll objects.
     '''
     queryset = Poll.objects.filter(status='published')
@@ -61,7 +63,8 @@ def search(request):
 
 
 def get_category_count():
-    '''Counts number of polls in every category. Returns all categories
+    '''
+    Counts number of polls in every category. Returns all categories
     and quantity of its polls.
     '''
     queryset = Poll \
@@ -72,7 +75,8 @@ def get_category_count():
 
 
 def featured(request):
-    '''Retunrs all polls models with featured=True.
+    '''
+    Retunrs all polls models with featured=True.
     '''
     featured = Poll.objects.filter(status='published').filter(featured=True)
     context = {
@@ -82,7 +86,8 @@ def featured(request):
 
 
 def archive(request):
-    '''Returns all published poll models paginated including category count.
+    '''
+    Returns all published poll models paginated including category count.
     '''
     category_count = get_category_count()
     poll_list = Poll.objects.filter(status='published')
@@ -104,7 +109,8 @@ def archive(request):
 
 
 def poll(request, slug):
-    '''Takes slug of single poll and returns that poll object in
+    '''
+    Takes slug of single poll and returns that poll object in
     corresponding language.
     '''
     if request.LANGUAGE_CODE == 'de':
