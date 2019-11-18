@@ -65,7 +65,7 @@ class Poll(models.Model):
     )
     slug = TranslatedField(
         models.SlugField(
-            max_length=80,
+            max_length=160,
             verbose_name="Poll URL slug",
         ),
         {

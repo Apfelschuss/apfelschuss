@@ -14,8 +14,8 @@
       <ul class="list-group mb-3">
         {% for cat in category_count %}
           <li class="list-group-item d-flex justify-content-between align-items-center">
-            {{ cat.category__title }}
-            <span class="badge badge-primary badge-pill">{{ cat.category__title__count }}</span>
+            {{ cat.category__poll_date }}
+            <span class="badge badge-primary badge-pill">{{ cat.category__poll_date__count }}</span>
           </li>
         {% endfor %}
       </ul>
@@ -33,7 +33,7 @@
         <div class="card mb-3">
           <div class="card-body">
             <div class="poll-category mb-1">
-              <a href="#" class="badge badge-dark">{{ poll.category.title }}</a>
+              <a href="#" class="badge badge-dark">{{ poll.category.poll_date }}</a>
             </div>
             <h5 class="card-title">{{ poll.title }}</h5>
             <p class="card-text">{{ poll.overview }}</p>

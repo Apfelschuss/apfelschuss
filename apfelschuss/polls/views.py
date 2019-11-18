@@ -69,8 +69,8 @@ def get_category_count():
     '''
     queryset = Poll \
         .objects \
-        .values('category__title') \
-        .annotate(Count('category__title'))
+        .values('category__poll_date') \
+        .annotate(Count('category__poll_date'))
     return queryset
 
 

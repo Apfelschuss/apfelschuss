@@ -10,9 +10,7 @@
 <article class="poll">
   <header class="poll-header">
     <div class="poll-category">
-      {% for cat in poll.categories.all %}
-        <a href="#" class="badge badge-light">{{ cat.title }}</a>
-      {% endfor %}
+      <a href="#" class="badge badge-dark">{{ poll.category.poll_date }}</a>
     </div>
 
     <h1>{{ poll.title }}</h1>
