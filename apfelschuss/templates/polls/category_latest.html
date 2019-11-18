@@ -7,7 +7,7 @@
 
 {% block content %}
 
-{% if category_latest.poll_date|length > 0 %}
+{% if category_latest.title|length > 0 %}
     <h1>{{ category_latest.poll_date }}</h1>
 
     {% for poll in polls %}
