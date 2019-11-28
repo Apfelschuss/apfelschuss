@@ -34,7 +34,7 @@ class Category(models.Model):
         User,
         on_delete=models.CASCADE,
         default=1,
-        verbose_name="Category owner"    
+        verbose_name="Category owner"
     )
     created_at = models.DateTimeField(
         auto_now_add=True
@@ -98,7 +98,7 @@ class Poll(models.Model):
         User,
         on_delete=models.CASCADE,
         default=1,
-        verbose_name="Poll owner"    
+        verbose_name="Poll owner"
     )
     thumbnail = FileBrowseField(
         "Thumbnail",

@@ -30,6 +30,7 @@ def seed_users(num_entries=10, overwrite=False):
             username=first_name + last_name,
             password="password"
         )
+        u.save()
         count += 1
         percent_complete = count / num_entries * 100
         print(
@@ -53,12 +54,12 @@ def seed_categories(num_entries=10, choice_min=2, choice_max=5, overwrite=False)
         if count % 5 == 0:
             status = 'draft'
         else:
-            status = 'published'  
+            status = 'published'
         c = Category(
-            status = status,
-            title = fake.sentence(),
-            poll_date = timezone.now(),
-            owner = random.choice(users),
+            status=status,
+            title=fake.sentence(),
+            poll_date=timezone.now(),
+            owner=random.choice(users),
         )
         c.save()
         count += 1
@@ -89,27 +90,27 @@ def seed_polls(num_entries=10, choice_min=2, choice_max=5, overwrite=False):
         if count % 10 == 0:
             featured = True
         else:
-            featured = False    
-        p = Poll( 
-            status = status,
-            title_de = fake.sentence(),
-            title_fr = fake.sentence(),
-            title_it = fake.sentence(),
-            title_rm = fake.sentence(),
-            title_en = fake.sentence(),
-            description_de = fake.paragraph(),
-            description_fr = fake.paragraph(),
-            description_it = fake.paragraph(),
-            description_rm = fake.paragraph(),
-            description_en = fake.paragraph(),
-            owner = random.choice(users),
-            video_url_de = 'https://www.youtube.com/embed/yltRgOFYD-w',
-            video_url_fr = 'https://www.youtube.com/embed/yltRgOFYD-w',
-            video_url_it = 'https://www.youtube.com/embed/yltRgOFYD-w',
-            video_url_rm = 'https://www.youtube.com/embed/yltRgOFYD-w',
-            video_url_en = 'https://www.youtube.com/embed/yltRgOFYD-w',
-            category = random.choice(category),
-            featured = featured
+            featured = False
+        p = Poll(
+            status=status,
+            title_de=fake.sentence(),
+            title_fr=fake.sentence(),
+            title_it=fake.sentence(),
+            title_rm=fake.sentence(),
+            title_en=fake.sentence(),
+            description_de=fake.paragraph(),
+            description_fr=fake.paragraph(),
+            description_it=fake.paragraph(),
+            description_rm=fake.paragraph(),
+            description_en=fake.paragraph(),
+            owner=random.choice(users),
+            video_url_de='https://www.youtube.com/embed/yltRgOFYD-w',
+            video_url_fr='https://www.youtube.com/embed/yltRgOFYD-w',
+            video_url_it='https://www.youtube.com/embed/yltRgOFYD-w',
+            video_url_rm='https://www.youtube.com/embed/yltRgOFYD-w',
+            video_url_en='https://www.youtube.com/embed/yltRgOFYD-w',
+            category=random.choice(category),
+            featured=featured
         )
         p.save()
         count += 1
