@@ -1,32 +1,57 @@
 {
   "name": "apfelschuss",
+  "description": "Module bundler for sterndreieck webapplication",
+  "license": "GPL-3.0-or-later",
+  "author": "Philipp Bruhin",
+  "homepage": "https://github.com/apfelschuss/apfelschuss#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apfelschuss/apfelschuss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/apfelschuss/apfelschuss/issues"
+  },
   "version": "0.1.0",
-  "dependencies": {},
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf ./apfelschuss/static/*",
+    "dev": "npm rebuild node-sass && webpack --config webpack.config.js",
+    "watch": "npm rebuild node-sass && webpack --watch --config webpack.config.js",
+    "build": "webpack --optimize-minimize --config webpack.production.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.14.3",
+    "shards-ui": "^3.0.0"
+  },
   "devDependencies": {
-    "bootstrap": "4.3.1",
-    "gulp-concat": "^2.6.1",
-    "jquery": "3.3.1",
-    "popper.js": "1.14.3",
-    "autoprefixer": "^9.4.7",
-    "browser-sync": "^2.14.0",
-    "cssnano": "^4.1.10",
-    "gulp": "^4.0.0",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^4.0.2",
-    "gulp-uglify-es": "^1.0.4",
-    "pixrem": "^5.0.0"
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "autoprefixer": "^9.7.4",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "file-loader": "^5.1.0",
+    "image-webpack-loader": "^6.0.0",
+    "imports-loader": "^0.8.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "postcss-loader": "^3.0.0",
+    "purgecss-webpack-plugin": "^1.0.6",
+    "sass-loader": "^8.0.1",
+    "standard": "^14.3.1",
+    "style-loader": "^1.1.3",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
   },
   "engines": {
-    "node": ">=8"
-  },
-  "browserslist": [
-    "last 2 versions"
-  ],
-  "scripts": {
-    "dev": "gulp",
-    "build": "gulp generate-assets"
+    "node": "10.x",
+    "npm": "6.x"
   }
 }

@@ -274,6 +274,12 @@ apfelschuss/media/
 
 
 .ipython/
-.env
-.envs/*
-!.envs/.local/
+.env
+
+.envs/*
+
+!.envs/.local/
+
+# Webpack and styles
+apfelschuss/static/*
+!apfelschuss/static/.gitkeep

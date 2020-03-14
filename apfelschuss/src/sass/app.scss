@@ -1,0 +1,37 @@
+@import 'variables';
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/shards-ui/src/scss/shards';
+
+// Sticky Footer Start
+.site {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* 1 */
+}
+
+.site-header,
+.site-footer {
+  flex-shrink: 0; /* 2 */
+}
+
+.site-content {
+  flex: 1 0 auto; /* 2 */
+}
+// Sticky Footer End
+
+html {
+  overflow-y:scroll;
+}
+
+body {
+  background: #fafafa;
+}
+
+// Removing primary email address error (Bootsrap 3 instead 4)
+.alert-error {
+  @extend .alert-danger;
+}
+
+footer {
+  background-color: #fff;
+}

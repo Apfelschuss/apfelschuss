@@ -41,8 +41,8 @@ Prerequisites
 Generating assets
 ^^^^^^^^^^^^^^^^^
 
-1. Run in the root ``npm install``
-2. Run ``npm run build``
+1. Run in the root ``docker-compose -f local.yml run --rm node npm install``
+2. Run ``docker-compose -f local.yml run --rm node npm run build`` or ``docker-compose -f local.yml run --rm node npm run watch`` for development.
 
 For frontend development (sass, js and image generation on the fly) you can run ``npm run watch``. Assets are located in `apfelschuss/src`_ folder and will be moved to `apfelschuss/static`_. This project uses webpack_ as assets bundler.
 
