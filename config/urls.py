@@ -24,6 +24,12 @@ urlpatterns += [
     path("api/", include("config.api_router")),
     # DRF auth token
     path("auth-token/", obtain_auth_token),
+    # Login via browsable API
+    path("api-auth/", include("rest_framework.urls")),
+    # Login via REST
+    path("api/rest-auth/", include("rest_auth.urls")),
+    # Registration via REST
+    path("api/rest-auth/registration", include("rest_framework.urls")),
 ]
 
 if settings.DEBUG:
