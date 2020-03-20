@@ -31,7 +31,7 @@ urlpatterns += [
     # Registration via REST
     path("api/rest-auth/registration", include("rest_framework.urls")),
 
-    re_path(r"^.*$", TemplateView.as_view(template_name="frontend/index.html"), name="home") 
+    #re_path(r"^.*$", TemplateView.as_view(template_name="frontend/index.html"), name="home") 
 ]
 
 if settings.DEBUG:
