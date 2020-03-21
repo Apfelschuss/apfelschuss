@@ -4,7 +4,6 @@ from django.utils.text import slugify
 def unique_slug_generator(model_instance, title, slug_field, language=''):
     '''Creates slug by reference to title. If title already
     exits, the primary key will be appended to the slug.
-
     Args:
         model_instance (object): An object that needs a slug
         title (string): Title of the object

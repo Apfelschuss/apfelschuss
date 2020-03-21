@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
+
 from rest_framework.authtoken.views import obtain_auth_token
 
 from filebrowser.sites import site
@@ -29,7 +30,7 @@ urlpatterns += [
     # Login via REST
     path("api/rest-auth/", include("rest_auth.urls")),
     # Registration via REST
-    path("api/rest-auth/registration", include("rest_framework.urls")),
+    path("api/rest-auth/registration", include("rest_auth.registration.urls")),
 
     #re_path(r"^.*$", TemplateView.as_view(template_name="frontend/index.html"), name="home") 
 ]
