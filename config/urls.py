@@ -23,6 +23,8 @@ urlpatterns = [
 urlpatterns += [
     # API base url
     path("api/", include("config.api_router")),
+    # API polls
+    path("api/", include("apfelschuss.polls.api.urls")),
     # DRF auth token
     path("auth-token/", obtain_auth_token),
     # Login via browsable API
