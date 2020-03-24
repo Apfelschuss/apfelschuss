@@ -14,15 +14,18 @@ class Category(models.Model):
     status = StatusField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    title = models.CharField(max_length=240, verbose_name="Poll title")
+    title = models.CharField(max_length=240, verbose_name="Poll category title")
     slug = models.SlugField(max_length=255, blank=True, unique=True)
-    poll_date = models.DateTimeField(verbose_name="Poll final date")
+    poll_date = models.DateTimeField(verbose_name="Category final date")
     author = models.ForeignKey(settings.AUTH_USER_MODEL,
                                 on_delete=models.CASCADE,
                                 related_name="categories")
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name_plural = "Categories"
 
 
 class Poll(models.Model):
@@ -32,21 +35,23 @@ class Poll(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=240, verbose_name="Poll title")
     slug = models.SlugField(max_length=255, blank=True, unique=True)
-    description = HTMLField(verbose_name="Poll description",)
+    description = HTMLField(verbose_name="Poll description", blank=True)
     thumbnail = FileBrowseField(
         "Thumbnail",
-        max_length=200,
+        max_length=255,
         directory="polls/",
         blank=True,
         )
     video_url = models.URLField(
-        max_length=200,
+        max_length=255,
         verbose_name="Youtube embedded URL",
+        blank=True,
         )
     admin_brochure = FileBrowseField(
-        max_length=200,
+        max_length=255,
         directory="polls/",
         verbose_name="Formal brochure",
+        blank=True,
         )
     featured = models.BooleanField(
         default=False,
