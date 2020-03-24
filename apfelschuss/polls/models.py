@@ -39,7 +39,7 @@ class Poll(models.Model):
     thumbnail = FileBrowseField(
         "Thumbnail",
         max_length=255,
-        directory="polls/",
+        directory="uploads/",
         blank=True,
         )
     video_url = models.URLField(
@@ -49,7 +49,7 @@ class Poll(models.Model):
         )
     admin_brochure = FileBrowseField(
         max_length=255,
-        directory="polls/",
+        directory="uploads/",
         verbose_name="Formal brochure",
         blank=True,
         )

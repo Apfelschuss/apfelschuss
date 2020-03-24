@@ -312,8 +312,7 @@ REST_FRAMEWORK = {
 # django-filebrowser-no-grappelli
 # ------------------------------------------------------------------------------
 # https://django-filebrowser.readthedocs.io/en/latest/settings.html
-FILEBROWSER_DIRECTORY = ""
-DIRECTORY = ""
+FILEBROWSER_DIRECTORY = ''
 
 # django-tinymce4-lite
 # ------------------------------------------------------------------------------
