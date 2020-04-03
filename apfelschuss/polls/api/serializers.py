@@ -21,7 +21,7 @@ class CategorySerializer(serializers.ModelSerializer):
     slug = serializers.SlugField(read_only=True)
 
     class Meta:
-        model = Poll
+        model = Category
         exclude = ["updated_at", "author"]
 
     def get_created_at(self, instance):
