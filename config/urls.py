@@ -1,31 +1,41 @@
 from django.conf import settings
-from django.urls import include, path
 from django.conf.urls.static import static
-from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
-from django.views.generic import TemplateView
+from django.urls import include, path, re_path
 from django.views import defaults as default_views
+from django.views.generic import TemplateView
+
+from rest_framework.authtoken.views import obtain_auth_token
 
 from filebrowser.sites import site
 
 urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
+    # User management
+    path("users/", include("apfelschuss.users.urls", namespace="users")),
+    path("accounts/", include("allauth.urls")),
     # Additional tools
     path("tinymce/", include("tinymce.urls")),
     path(settings.ADMIN_URL+"filebrowser/", site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# API URLS
+urlpatterns += [
+    # API base url
+    path("api/", include("config.api_router")),
+    # API polls
+    path("api/", include("apfelschuss.polls.api.urls")),
+    # DRF auth token
+    path("auth-token/", obtain_auth_token),
+    # Login via browsable API
+    path("api-auth/", include("rest_framework.urls")),
+    # Login via REST
+    path("api/rest-auth/", include("rest_auth.urls")),
+    # Registration via REST
+    path("api/rest-auth/registration", include("rest_auth.registration.urls")),
 
-urlpatterns += i18n_patterns(
-    path('i18n/', include("django.conf.urls.i18n")),
-    path("users/", include("apfelschuss.users.urls", namespace="users")),
-    path("accounts/", include("allauth.urls")),
-    path("terms-of-use/", TemplateView.as_view(template_name="pages/terms_of_use.html"), name="terms_of_use"),
-    path("legal-notice/", TemplateView.as_view(template_name="pages/legal_notice.html"), name="legal_notice"),
-    path("", include("apfelschuss.polls.urls", namespace="polls")),
-    # No en/ prefix
-    prefix_default_language=False,
-)
+    #re_path(r"^.*$", TemplateView.as_view(template_name="frontend/index.html"), name="home") 
+]
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit

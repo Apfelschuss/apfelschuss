@@ -1,17 +1,17 @@
 {
   "name": "apfelschuss",
-  "description": "Module bundler for apfelschuss webapplication",
+  "description": "Module bundler for sterndreieck webapplication",
   "license": "GPL-3.0-or-later",
   "author": "Philipp Bruhin",
-  "homepage": "https://github.com/Apfelschuss/apfelschuss#readme",
+  "homepage": "https://github.com/apfelschuss/apfelschuss#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Apfelschuss/apfelschuss.git"
+    "url": "git+https://github.com/apfelschuss/apfelschuss.git"
   },
   "bugs": {
-    "url": "https://github.com/Apfelschuss/apfelschuss/issues"
+    "url": "https://github.com/apfelschuss/apfelschuss/issues"
   },
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf ./apfelschuss/static/*",
@@ -21,33 +21,34 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
-    "popper.js": "^1.16.0"
+    "popper.js": "^1.14.3",
+    "shards-ui": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
-    "autoprefixer": "^9.7.2",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "autoprefixer": "^9.7.4",
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.0.4",
-    "css-loader": "^3.2.0",
-    "file-loader": "^5.0.2",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "file-loader": "^5.1.0",
     "image-webpack-loader": "^6.0.0",
     "imports-loader": "^0.8.0",
-    "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^4.13.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
-    "purgecss-webpack-plugin": "^1.6.0",
-    "sass-loader": "^8.0.0",
+    "purgecss-webpack-plugin": "^1.0.6",
+    "sass-loader": "^8.0.1",
     "standard": "^14.3.1",
-    "style-loader": "^1.0.0",
+    "style-loader": "^1.1.3",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^3.0.0",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
   },
   "engines": {
     "node": "10.x",

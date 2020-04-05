@@ -110,7 +110,13 @@ const configs = [{
     }),
     new PurgecssPlugin({
         paths: glob.sync('./apfelschuss/templates/**/*.html', { nodir: true }),
-        whitelist: ['show']
+        whitelist: [
+          'input',
+
+          'show',
+          'form-group',
+          'form-control'
+        ]
     })
   ]
 }
