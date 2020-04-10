@@ -21,7 +21,7 @@ import sys
 
 # -- Project information -----------------------------------------------------
 
-project = "Apfelschuss"
+project = "apfelschuss"
 copyright = """2020, Philipp Bruhin"""
 author = "Philipp Bruhin"
 
