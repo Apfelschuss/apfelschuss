@@ -2,6 +2,7 @@
 Base settings to build other settings files upon.
 """
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 
 import environ
 
@@ -69,12 +70,14 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "rest_framework",
-    "rest_framework.authtoken",
+    "tinymce",
+    "filebrowser",
 ]
 
 LOCAL_APPS = [
     "apfelschuss.users.apps.UsersConfig",
     # Your stuff: custom apps go here
+    "apfelschuss.polls.apps.PollsConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -275,5 +278,60 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
 }
-# Your stuff...
+
+# django-tinymce4-lite
 # ------------------------------------------------------------------------------
+# https://fosstack.com/how-to-set-up-tinymce-in-django-app/
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 400,
+    'width': 1000,
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'theme': 'modern',
+    'plugins': '''
+            textcolor save link image media preview codesample contextmenu
+            table code lists fullscreen  insertdatetime  nonbreaking
+            contextmenu directionality searchreplace wordcount visualblocks
+            visualchars code fullscreen autolink lists  charmap print  hr
+            anchor pagebreak
+            ''',
+    'toolbar1': '''
+            fullscreen preview bold italic underline | fontselect,
+            fontsizeselect  | forecolor backcolor | alignleft alignright |
+            aligncenter alignjustify | indent outdent | bullist numlist table |
+            | link image media | codesample |
+            ''',
+    'toolbar2': '''
+            visualblocks visualchars |
+            charmap hr pagebreak nonbreaking anchor |  code |
+            ''',
+    'contextmenu': 'formats | link image',
+    'menubar': True,
+    'statusbar': True,
+    }
+
+# Internationalization and Localization
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#languages
+LANGUAGES = [
+    ('de', _('German')),
+    ('fr', _('French')),
+    ('it', _('Italian')),
+    ('rm', _('Raeto-Romance')),
+    ('en', _('English')),
+]
+
+# Add custom language Romansh as long as not provided by Django
+# https://github.com/django/django/blob/master/django/conf/locale/__init__.py
+EXTRA_LANG_INFO = {
+    'rm': {
+        'bidi': False,
+        'code': 'rm',
+        'name': 'Romansh',
+        'name_local': 'Romansch',
+    },
+}
+
+LANG_INFO = dict(django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO)
+django.conf.locale.LANG_INFO = LANG_INFO
