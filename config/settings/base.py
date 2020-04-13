@@ -1,8 +1,10 @@
 """
 Base settings to build other settings files upon.
 """
-from pathlib import Path
+import django.conf.locale
 from django.utils.translation import gettext_lazy as _
+
+from pathlib import Path
 
 import environ
 
